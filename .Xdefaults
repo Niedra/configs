@@ -1,0 +1,76 @@
+Xcursor.theme Obsidian
+urxvt.cursorColor: #DDEEDD
+ 
+! tangoesque scheme
+*background:  #222222
+*foreground:  #aaaaaa
+! Black
+*color0:      #000000
+*color8:      #555753
+! Red
+*color1:      #ff6565
+*color9:      #ff8d8d
+! Green
+*color2:      #93d44f
+*color10:     #c8e7a8
+! Yellow
+*color3:      #eab93d
+*color11:     #ffc123
+! Blue
+*color4:      #204a87
+*color12:     #3465a4
+! Mangenta
+*color5:      #ce5c00
+*color13:     #f57900
+! Cyan 
+*color6:      #89b6e2
+*color14:     #46a4ff
+! White
+*color7:      #cccccc
+*color15:     #ffffff
+ 
+
+!tab colors
+URxvt.tabbed.tabbar-fg: 8
+URxvt.tabbed.tabbar-bg: -1
+URxvt.tabbed.tab-fg: 5
+URxvt.tabbed.tab-bg: -1
+
+! rxvt-unicode ---------------------------------------------------------------
+
+urxvt.perl-ext-common: default
+urxvt*font:xft:Dina:size=8:autohint=true
+urxvt*transparent:false
+urxvt*scrollBar:false
+urxvt*geometry:	165x55
+urxvt*internalBorder:     2
+urxvt*borderLess: false
+#urxvt*fading:            100
+urxvt*shading:            30
+urxvt*tintColor:          #cacaca
+#urxvt*inheritPixmap:      true
+urxvt*depth:              24
+urxvt*saveLines:          32767
+urxvt*visualBell:         true
+urxvt*scrollTtyKeypress:  true
+urxvt*scrollWithBuffer:   false
+urxvt*scrollTtyOutput:    false
+urxvt*scrollstyle:       plain 
+urxvt*scrollColor:        #777777
+urxvt*cursorColor:        #ffcc00
+urxvt*loginShell:         true
+urxvt*termName:           rxvt
+urxvt*cutchars:           "()*,<>[]{}|'
+urxvt*print-pipe:         cat > $(echo urxvt.dump.`date +'%Y%M%d%H%m%S'`)
+urxvt*secondaryScroll:    true
+urxvt*mapAlert:           true
+urxvt*utmpInhibit:        true
+urxvt*perl-lib:           /usr/lib/urxvt/perl/
+urxvt*perl-ext-common:    default,matcher,clipboard
+urxvt*urlLauncher:        /usr/bin/firefox
+urxvt.matcher.button: 2
+urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+!urxvt*background:         #191919
+!urxvt*background:         rgba:2222/2222/2222/dddd
+!urxvt*background:         rgba:0000/0000/0000/dddd
+

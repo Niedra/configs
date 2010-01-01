@@ -1,0 +1,34 @@
+#DEFAULT_SESSION=openbox-session
+xsetroot -cursor_name left_ptr
+
+case $1 in
+xmonad)
+        ck-launch-session&
+	nitrogen --restore&
+	parcellite &
+        trayer --edge top --align right --heighttype pixel --height 15 --SetDockType false --widthtype pixel --width 350 --margin 207 --tint 0x1c1c1c --transparent true --alpha 0 &
+	setxkbmap lv -variant tilde &
+        dropboxd &
+        ~/scripts/claws-mail.sh &
+        xcompmgr &
+	exec xmonad
+	;;
+openbox)
+	openbox-session
+	;;
+gnome)
+        ck-launch-session&
+        gnome-session
+        ;;
+*)
+        ck-launch-session&
+	nitrogen --restore&
+	parcellite &
+        trayer --edge top --align right --heighttype pixel --height 15 --SetDockType false --widthtype pixel --width 350 --margin 207 --tint 0x1c1c1c --transparent true --alpha 0 &
+	setxkbmap lv -variant tilde &
+        dropboxd &
+        ~/scripts/claws-mail.sh &
+        xcompmgr &
+	exec xmonad
+	;;
+esac
