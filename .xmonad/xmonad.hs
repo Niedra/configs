@@ -31,6 +31,9 @@ import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Spacing
 import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
+--for gimp
+import XMonad.Layout.IM
+import XMonad.Layout.Reflect
 import Data.Ratio((%))
 
 
@@ -67,10 +70,11 @@ fadeLogHook = fadeInactiveLogHook fadeAmount
 -------------------- layouthooks --------------------
 
 layoutHook' = customLayout
-customLayout = onWorkspace "web" (avoidStrutsOn [U] (simpleTabbed)) $ avoidStrutsOn [U] (smartBorders tiled ||| spaced ||| smartBorders (Mirror tiled) ||| noBorders Full)
+customLayout = onWorkspace "web" (avoidStrutsOn [U] (simpleTabbed)) $ avoidStrutsOn [U] (smartBorders tiled ||| spaced ||| smartBorders (Mirror tiled) ||| noBorders Full ||| gimp)
 	where
 	 spaced = named "Spacing" $ spacing 2 $ Tall 1 (3/100) (1/2)
 	 tiled  = named "Tiled" $ ResizableTall 1 (2/100) (1/2) []
+         gimp = withIM (0.11) (Role "toolbox") $ reflectHoriz $ withIM(0.15)(Role "gimp-dock") Full
 
 -------------------- menuhook --------------------
 
@@ -113,7 +117,7 @@ myManageHook = composeAll . concat $
 
       imMessenger = ["Pidgin", "Skype"]
       browsers = ["Shiretoko", "Uzbl", "Chromium"]
-      elseApps = ["Mirage", "Gimp"]
+      elseApps = ["Mirage"]
 
 -------------------- keybinds --------------------
 
