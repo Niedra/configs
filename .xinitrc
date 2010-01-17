@@ -9,10 +9,18 @@ xmonad)
         trayer --edge top --align right --heighttype pixel --height 15 --SetDockType false --widthtype pixel --width 350 --margin 207 --tint 0x1c1c1c --transparent true --alpha 0 &
 	setxkbmap lv -variant tilde &
         dropboxd &
-        ~/scripts/claws-mail.sh &
+        claws-mail&
         xcompmgr &
 	exec xmonad
 	;;
+awesome)
+        ck-launch-session&
+        parcellite &
+        dropboxd &
+        claws-mail &
+        setxkbmap lv -variant tilde
+        exec awesome
+        ;;
 openbox)
 	openbox-session
 	;;
@@ -22,13 +30,13 @@ gnome)
         ;;
 *)
         ck-launch-session&
-	nitrogen --restore&
+#	nitrogen --restore&
 	parcellite &
-        trayer --edge top --align right --heighttype pixel --height 15 --SetDockType false --widthtype pixel --width 350 --margin 207 --tint 0x1c1c1c --transparent true --alpha 0 &
+#        trayer --edge top --align right --heighttype pixel --height 15 --SetDockType false --widthtype pixel --width 350 --margin 207 --tint 0x1c1c1c --transparent true --alpha 0 &
 	setxkbmap lv -variant tilde &
         dropboxd &
-        ~/scripts/claws-mail.sh &
-        xcompmgr &
-	exec xmonad
+        claws-mail &
+ #       xcompmgr &
+	exec awesome
 	;;
 esac

@@ -4,6 +4,8 @@ set number
 set guioptions=aegirLt
 colorscheme wombat256
 
+set nocompatible
+
 set expandtab
 set textwidth=79
 set lines=60
