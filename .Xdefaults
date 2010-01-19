@@ -1,8 +1,8 @@
-Xcursor.theme Obsidian
+Xcursor.theme: OpenZone_Black
 urxvt.cursorColor: #DDEEDD
  
 ! tangoesque scheme
-*background:  #222222
+*background:  #1E2320
 *foreground:  #aaaaaa
 ! Black
 *color0:      #000000
