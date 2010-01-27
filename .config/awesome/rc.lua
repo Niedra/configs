@@ -44,16 +44,17 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-    names = {"terms", "web", "code", "im", "else"
+    layout = { layouts[4], layouts[12], layouts[2], layouts[12], layouts[1]
     },
-    layout = { layouts[2], layouts[12], layouts[2], layouts[2], layouts[1]
+    layout2 = { layouts[4], layouts[4], layouts[4], layouts[1]
 }}
 
 
-for s = 1, screen.count() do
+--for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag(tags.names, s, tags.layout)
-end
+tags[1] = awful.tag({"terms", "web", "code", "mail", "else"}, 1, tags.layout)
+tags[2] = awful.tag({"terms", "irc", "im", "else"}, 2, tags.layout2)
+--end
 -- }}}
 
 -- {{{ Menu
@@ -313,7 +314,9 @@ awful.rules.rules = {
       properties = { floating = true } },
     -- Set Skype to always map on tags number 2 of screen 1.
     { rule = { class = "Skype" },
-      properties = { tag = tags[2][4] } },
+      properties = { tag = tags[2][3] } },
+    { rule = { class = "Claws Mail" },
+      properties = { tag = tags[1][4] } },
     { rule = { class = "Chromium" },
       properties = { tag = tags[1][2] } },
 }

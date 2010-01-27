@@ -36,6 +36,7 @@ gnome)
 	setxkbmap lv -variant tilde &
         dropboxd &
         claws-mail &
+        xscreensaver -no-splash &
  #       xcompmgr &
 	exec awesome
 	;;
