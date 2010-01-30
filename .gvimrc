@@ -7,6 +7,7 @@ colorscheme wombat256
 
 set nocompatible
 
+set incsearch
 set expandtab
 set textwidth=79
 set lines=60
