@@ -46,13 +46,13 @@ layouts =
 tags = {
     layout = { layouts[4], layouts[12], layouts[2], layouts[12], layouts[1]
     },
-    layout2 = { layouts[4], layouts[4], layouts[4], layouts[1]
+    layout2 = { layouts[4], layouts[4], layouts[6], layouts[1]
 }}
 
 
 --for s = 1, screen.count() do
     -- Each screen has its own tag table.
-tags[1] = awful.tag({"terms", "web", "code", "mail", "else"}, 1, tags.layout)
+tags[1] = awful.tag({"terms", "web", "code", "else"}, 1, tags.layout)
 tags[2] = awful.tag({"terms", "irc", "im", "else"}, 2, tags.layout2)
 --end
 -- }}}

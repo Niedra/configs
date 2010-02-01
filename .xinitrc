@@ -9,7 +9,7 @@ xmonad)
         trayer --edge top --align right --heighttype pixel --height 15 --SetDockType false --widthtype pixel --width 350 --margin 207 --tint 0x1c1c1c --transparent true --alpha 0 &
 	setxkbmap lv -variant tilde &
         dropboxd &
-        claws-mail&
+ #       claws-mail&
         xcompmgr &
 	exec xmonad
 	;;
@@ -17,7 +17,7 @@ awesome)
         ck-launch-session&
         parcellite &
         dropboxd &
-        claws-mail &
+#        claws-mail &
         setxkbmap lv -variant tilde
         exec awesome
         ;;
@@ -35,7 +35,7 @@ gnome)
 #        trayer --edge top --align right --heighttype pixel --height 15 --SetDockType false --widthtype pixel --width 350 --margin 207 --tint 0x1c1c1c --transparent true --alpha 0 &
 	setxkbmap lv -variant tilde &
         dropboxd &
-        claws-mail &
+#        claws-mail &
         xscreensaver -no-splash &
  #       xcompmgr &
 	exec awesome
