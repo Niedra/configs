@@ -1,18 +1,17 @@
 # colored prompt
-  B="\e[0;34m"
-  R="\e[1;31m"
+  B="\e[1;34m"
+  R="\e[0;31m"
   G="\e[0;32m"
+  O="\e[0;35m"
   Y="\e[0;33m"
-  W="\e[0m"
+  W="\e[0;32m"
 
 
 if [ '/usr/bin/whoami' = root ]
 then
-    export PS1="\[$Y\]┌─\[$W\][ \[$Y\]\A \[$W\]][ \[$R\]\h:\w \[$W\]]\n\[$B\]└─\[$Y\]> \[$W\]"
-else
-    export PS1="\[$B\]┌─\[$W\][ \[$Y\]\A \[$W\]][ \[$G\]\h:\w \[$W\]]\n\[$B\]└─\[$Y\]> \[$W\]"
+    export PS1="\[$B\][ \[$Y\]\A \[$B\]][ \[$G\]\h:\w \[$B\]]\[$Y\] ─\[$Y\]> \[$W\]"
 fi
-PS1="\[$B\]┌─\[$W\][ \[$Y\]\A \[$W\]][ \[$G\]\h:\w \[$W\]]\n\[$B\]└─\[$Y\]> \[$W\]"
+PS1="\[$B\][ \[$Y\]\A \[$B\]][ \[$O\]\h:\w \[$B\]]\[$Y\] » \[$W\]"
 
 alias ls='ls -hF --color'
 alias svnup='svn update /srv/http/'
