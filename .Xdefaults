@@ -2,7 +2,8 @@ Xcursor.theme: OpenZone_Black
 urxvt.cursorColor: #DDEEDD
  
 ! tangoesque scheme
-*background:  #1E2320
+! *background:  #1E2320
+*background:  #242424
 *foreground:  #aaaaaa
 ! Black
 *color0:      #000000
