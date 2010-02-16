@@ -354,4 +354,4 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- }}}
 
 -- Autostart
-awful.util.spawn_with_shell("nitrogen --restore")
+-- awful.util.spawn_with_shell("nitrogen --restore")
