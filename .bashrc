@@ -13,7 +13,7 @@ then
 fi
 PS1="\[$B\][ \[$Y\]\A \[$B\]][ \[$O\]\h:\w \[$B\]]\[$Y\] » \[$W\]"
 
-alias ls='ls -hF --color'
+alias ls='ls -hF --color --group-directories-first'
 alias svnup='svn update /srv/http/'
 
 alias mv='mv -v'
