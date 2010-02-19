@@ -5,6 +5,8 @@ set guioptions=aegirLt
 colorscheme twilight
 
 set nocompatible
+set mouse=a
+set incsearch
 
 set expandtab
 set textwidth=79
