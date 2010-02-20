@@ -6,6 +6,8 @@ set gfn=Envy\ Code\ R\ 10
 colorscheme wombat256
 
 set nocompatible
+set makeprg=gcc\ -o\ %<\ %
+set autochdir
 
 set incsearch
 set expandtab
@@ -53,6 +55,7 @@ map T :TaskList<CR>
 map <C-P> :TlistToggle<CR> 
 
 nmap <C-s> :w<CR>
+nmap <C-c> :make<CR>
 imap <C-s> <Esc>:w<CR>a
 
 
