@@ -58,4 +58,4 @@ nmap <C-s> :w<CR>
 nmap <C-c> :make<CR>
 imap <C-s> <Esc>:w<CR>a
 
-
+au BufNewFile *.py 0r ~/.vim/templates/py.py
