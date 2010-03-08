@@ -11,11 +11,11 @@ set autochdir
 
 set incsearch
 set expandtab
-set textwidth=79
+set textwidth=80
 set lines=60
 set tabstop=8
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=8
+set shiftwidth=8
 set autoindent
 set guioptions-=r
 set guioptions+=l
