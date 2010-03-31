@@ -11,6 +11,9 @@ awesome)
 openbox)
 	    openbox-session
 	    ;;
+kde)
+        startkde
+        ;;
 gnome)
         ck-launch-session&
         gnome-session
