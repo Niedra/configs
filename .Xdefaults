@@ -46,7 +46,7 @@ URxvt.tabbed.tab-bg: -1
 
 urxvt.perl-ext-common: default
 urxvt*font:xft:Envy Code R:size=10:autohint=true
-urxvt*transparent:false
+urxvt*transparent:true
 urxvt*scrollBar:false
 urxvt*geometry:	165x55
 urxvt*internalBorder:     2
