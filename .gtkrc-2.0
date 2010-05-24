@@ -1,8 +1,8 @@
 # DO NOT EDIT!  This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine
 
-gtk-theme-name="Aurora"
-gtk-icon-theme-name="gnome-dust"
+gtk-theme-name="Unified"
+gtk-icon-theme-name="gnome-brave"
 gtk-font-name="Envy Code R 10"
 gtk-toolbar-style=2
 include "/home/roberts/.gtkrc-2.0.mine"
