@@ -43,17 +43,35 @@ layouts =
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
-tags = {
-    layout = { layouts[4], layouts[12], layouts[3], layouts[12], layouts[1]
-    },
-    layout2 = { layouts[4], layouts[4], layouts[6], layouts[1]
-}}
+--tags = {
+--    layout = { layouts[4], layouts[12], layouts[3], layouts[12], layouts[1]
+--    },
+--    layout2 = { layouts[4], layouts[4], layouts[6], layouts[1]
+--}}
 
+-- {{{ Tags
+tags = {
+    settings = {
+        { names  = {"terms", "web", "code", "else"},
+        layout = { layouts[4], layouts[12], layouts[3], layouts[12] }
+    },
+    { names  = {"terms", "irc", "im", "else"},
+    layout = { layouts[4], layouts[4], layouts[6], layouts[1] }
+}}}
+
+for s = 1, screen.count() do
+    tags[s] = awful.tag(tags.settings[s].names, s, tags.settings[s].layout)
+end
+-- }}}
 
 --for s = 1, screen.count() do
     -- Each screen has its own tag table.
-tags[1] = awful.tag({"terms", "web", "code", "else"}, 1, tags.layout)
-tags[2] = awful.tag({"terms", "irc", "im", "else"}, 2, tags.layout2)
+
+--if screen.count() == 2 then
+--    tags[1] = awful.tag({}, 1, tags.layout)
+--    tags[2] = awful.tag({}, 2, tags.layout2)
+--else
+--    tags[1] = awful.tag({"terms", "web", "code", "else"}, 1, tags.layout)
 --end
 -- }}}
 
