@@ -1,3 +1,7 @@
+"Working dir"
+cd /home/roberts/workspace/c/_tut/
+
+
 syntax on
 set encoding=utf-8
 set number
@@ -6,8 +10,12 @@ set gfn=Envy\ Code\ R\ 10
 colorscheme wombat256
 
 set nocompatible
-set makeprg=gcc\ -o\ %<\ %
+set makeprg=gcc\ \-Wall\ -o\ %<\ %
 set autochdir
+
+set backup
+set backupdir=/tmp      " backup dir
+set directory=/tmp      " swap file directory
 
 set incsearch
 set expandtab
@@ -59,3 +67,5 @@ nmap <C-c> :make<CR>
 imap <C-s> <Esc>:w<CR>a
 
 au BufNewFile *.py 0r ~/.vim/templates/py.py
+au BufNewFile *.c 0r ~/.vim/templates/c.c
+au BufRead,BufNewFile *.viki set ft=viki
