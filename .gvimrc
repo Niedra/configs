@@ -1,5 +1,6 @@
 "Working dir"
-cd /home/roberts/workspace/c/_tut/
+""cd /home/roberts/workspace/c/_tut/
+cd /home/roberts/workspace/cpp
 
 
 syntax on
@@ -7,10 +8,12 @@ set encoding=utf-8
 set number
 set guioptions=aegirLt
 set gfn=Envy\ Code\ R\ 10
-colorscheme wombat256
+""colorscheme wombat256
+colorscheme mustang
 
 set nocompatible
-set makeprg=gcc\ \-Wall\ -o\ %<\ %
+set makeprg=g++\ \-Wall\ -o\ %<\ %
+""set makeprg=gcc\ \-Wall\ -o\ %<\ %
 set autochdir
 
 set backup
@@ -55,8 +58,8 @@ map <C-S-tab> :tabprevious<CR>
 map <C-tab> :tabnext<CR>
 imap <C-S-tab> <Esc>:tabprevious<CR>i
 imap <C-tab> <Esc>:tabnext<CR>i
-nmap <C-t> :tabnew<CR>
-imap <C-t> <Esc>:tabnew<CR>
+map tt :tabnew<CR><ESC>:NERDTreeToggle<RETURN>
+map <C-t> <Esc>:NERDTreeToggle<CR>
 :map <C-c> :tabclose<CR>
 
 map T :TaskList<CR>
@@ -68,4 +71,5 @@ imap <C-s> <Esc>:w<CR>a
 
 au BufNewFile *.py 0r ~/.vim/templates/py.py
 au BufNewFile *.c 0r ~/.vim/templates/c.c
+au BufNewFile *.cpp 0r ~/.vim/templates/cpp.cpp
 au BufRead,BufNewFile *.viki set ft=viki

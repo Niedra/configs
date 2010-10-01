@@ -52,8 +52,8 @@ layouts =
 -- {{{ Tags
 tags = {
     settings = {
-        { names  = {"terms", "web", "code", "else"},
-        layout = { layouts[4], layouts[12], layouts[3], layouts[12] }
+        { names  = {"terms", "web", "code", "docs", "else"},
+        layout = { layouts[4], layouts[12], layouts[3], layouts[3], layouts[12] }
     },
     { names  = {"terms", "irc", "im", "else"},
     layout = { layouts[4], layouts[4], layouts[6], layouts[1] }
@@ -335,10 +335,12 @@ awful.rules.rules = {
     -- Set Skype to always map on tags number 2 of screen 1.
     { rule = { class = "Skype" },
       properties = { tag = tags[2][3] } },
+    { rule = { class = "Okular" },
+      properties = { tag = tags[1][4] } },
+    { rule = { class = "OpenOffice" },
+      properties = { tag = tags[1][4] } },
     { rule = { class = "GVIM" },
       properties = { tag = tags[1][3] } },
-    { rule = { class = "Claws Mail" },
-      properties = { tag = tags[1][4] } },
     { rule = { class = "Chromium" },
       properties = { tag = tags[1][2] } },
 }
