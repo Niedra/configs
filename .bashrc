@@ -6,6 +6,9 @@
   Y="\e[0;33m"
   W="\e[0;32m"
 
+if [ -n "$DISPLAY" ]; then
+     BROWSER=chromium
+fi
 
 if [ '/usr/bin/whoami' = root ]
 then
