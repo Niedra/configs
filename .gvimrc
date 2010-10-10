@@ -67,6 +67,7 @@ map <C-P> :TlistToggle<CR>
 
 nmap <C-s> :w<CR>
 nmap <C-c> :make<CR>
+nmap <F4> :!./%<<CR>
 imap <C-s> <Esc>:w<CR>a
 
 au BufNewFile *.py 0r ~/.vim/templates/py.py

@@ -219,7 +219,7 @@ globalkeys = awful.util.table.join(
 
 
     -- My bindings
-    awful.key({ modkey,           }, "e", function () awful.util.spawn("pcmanfm") end),
+    awful.key({ modkey,           }, "e", function () awful.util.spawn("pcmanfm-mod") end),
     awful.key({ modkey,           }, "c", function () awful.util.spawn("chromium") end),
     awful.key({ modkey,   "Shift" }, "f", function () awful.util.spawn("firefox") end),
     awful.key({"Control", "Shift" }, "x", function () awful.util.spawn("ncmpcpp toggle") end),
