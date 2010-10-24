@@ -12,7 +12,7 @@ set gfn=Envy\ Code\ R\ 10
 colorscheme mustang
 
 set nocompatible
-set makeprg=g++\ \-Wall\ \-lSDL\ -o\ %<\ %
+set makeprg=g++\ \-Wall\ -o\ %<\ %
 ""set makeprg=gcc\ \-Wall\ -o\ %<\ %
 set autochdir
 

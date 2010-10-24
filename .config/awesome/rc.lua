@@ -330,7 +330,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
-    { rule = { class = "gimp" },
+    { rule = { class = "GNU Image Manipulation Program" },
       properties = { floating = true } },
     -- Set Skype to always map on tags number 2 of screen 1.
     { rule = { class = "Skype" },
