@@ -16,6 +16,7 @@ set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
 "set makeprg=g++\ \-Wall\ -o\ %<\ %
 ""set makeprg=gcc\ \-Wall\ -o\ %<\ %
 set autochdir
+set switchbuf=useopen,usetab,newtab
 
 set backup
 set backupdir=/tmp      " backup dir
