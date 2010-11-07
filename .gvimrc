@@ -12,9 +12,10 @@ set gfn=Envy\ Code\ R\ 10
 colorscheme mustang
 
 set nocompatible
-set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
+"set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
 "set makeprg=g++\ \-Wall\ -o\ %<\ %
 ""set makeprg=gcc\ \-Wall\ -o\ %<\ %
+set makeprg=make
 set autochdir
 set switchbuf=useopen,usetab,newtab
 
