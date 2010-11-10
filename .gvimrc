@@ -2,7 +2,6 @@
 ""cd /home/roberts/workspace/c/_tut/
 cd /home/roberts/workspace/cpp
 
-
 syntax on
 set encoding=utf-8
 set number
@@ -11,13 +10,14 @@ set gfn=Envy\ Code\ R\ 10
 ""colorscheme wombat256
 colorscheme mustang
 
-set nocompatible
+
 "set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
 "set makeprg=g++\ \-Wall\ -o\ %<\ %
 ""set makeprg=gcc\ \-Wall\ -o\ %<\ %
-set makeprg=make
 set autochdir
 set switchbuf=useopen,usetab,newtab
+set nocompatible
+set makeprg=make
 
 set backup
 set backupdir=/tmp      " backup dir
@@ -69,7 +69,7 @@ map T :TaskList<CR>
 map <C-P> :TlistToggle<CR> 
 
 nmap <C-s> :w<CR>
-nmap <C-c> :lmake<CR>
+nmap <C-c> :make<CR>
 nmap <F4> :!./%<<CR>
 imap <C-s> <Esc>:w<CR>a
 

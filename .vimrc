@@ -2,12 +2,12 @@ syntax on
 set encoding=utf-8
 set number
 set guioptions=aegirLt
-colorscheme twilight
+set t_Co=256
+colorscheme mustang
 
 set nocompatible
 set mouse=a
 set incsearch
-
 set expandtab
 set textwidth=79
 set lines=60
@@ -18,6 +18,10 @@ set autoindent
 set guioptions-=r
 set guioptions+=l
 set guioptions-=l
+
+set autochdir
+set switchbuf=useopen,usetab,newtab
+
 
 set guioptions-=m
 "set statusline=%<%f\ %h%m%r%=%-20.(line=%l,col=%c%V,totlin=%L%)\%h%m%r%=%-40(,%n%Y%)\%P
@@ -45,13 +49,21 @@ map <C-S-tab> :tabprevious<CR>
 map <C-tab> :tabnext<CR>
 imap <C-S-tab> <Esc>:tabprevious<CR>i
 imap <C-tab> <Esc>:tabnext<CR>i
-nmap <C-t> :tabnew<CR>
-imap <C-t> <Esc>:tabnew<CR>
+map tt :tabnew<CR><ESC>:NERDTreeToggle<RETURN>
+map <C-t> <Esc>:NERDTreeToggle<CR>
 :map <C-c> :tabclose<CR>
 
 map T :TaskList<CR>
 map <C-P> :TlistToggle<CR> 
 
 nmap <C-s> :w<CR>
+nmap <C-c> :make<CR>
+nmap <F4> :!./%<<CR>
 imap <C-s> <Esc>:w<CR>a
 
+au BufNewFile *.py 0r ~/.vim/templates/py.vim
+au BufNewFile *.c 0r ~/.vim/templates/c.vim
+au BufNewFile *.cpp 0r ~/.vim/templates/cpp.vim
+au BufNewFile *.h 0r ~/.vim/templates/h.vim
+au BufNewFile makefile 0r ~/.vim/templates/makefile.vim
+au BufRead,BufNewFile *.viki set ft=viki
