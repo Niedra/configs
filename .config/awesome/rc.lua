@@ -62,6 +62,34 @@ tags = {
 for s = 1, screen.count() do
     tags[s] = awful.tag(tags.settings[s].names, s, tags.settings[s].layout)
 end
+--
+
+ -- Keyboard map indicator and changer
+    kbdcfg = {}
+    kbdcfg.cmd = "setxkbmap"
+    kbdcfg.layout = { "lv", "us" }
+    kbdcfg.xmodmap = "xmodmap /home/roberts/random/colemak-1.0/xmodmap/xmodmap.colemak && xset r 66"
+    kbdcfg.current = 1  -- us is our default layout
+    kbdcfg.widget = widget({ type = "textbox", align = "right" })
+    kbdcfg.widget.text = " " .. kbdcfg.layout[kbdcfg.current] .. " "
+    kbdcfg.switch = function ()
+       kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
+       local t = " " .. kbdcfg.layout[kbdcfg.current] .. " "
+       kbdcfg.widget.text = t
+       if t == " lv " then
+           os.execute( kbdcfg.cmd .. t )
+           os.execute( "xset -r 66" )
+       else 
+           os.execute( kbdcfg.cmd .. t)
+           os.execute( kbdcfg.xmodmap )
+       end
+    end
+    
+    -- Mouse bindings
+    kbdcfg.widget:buttons(awful.util.table.join(
+        awful.button({ }, 1, function () kbdcfg.switch() end)
+    ))
+
 -- }}}
 
 --for s = 1, screen.count() do
@@ -170,6 +198,7 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        kbdcfg.widget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
