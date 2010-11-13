@@ -73,10 +73,11 @@ nmap <C-c> :make<CR>
 nmap <F4> :!./%<<CR>
 imap <C-s> <Esc>:w<CR>a
 
+"autocmd Bufwritepre,filewritepre *.cpp exe "1," . 10 . "g/Last Modified: .*/s/Last Modified: .*/Last Modified: " .strftime("%c")
 
 au BufRead,BufNewFile *.py 0r ~/.vim/templates/py.vim
 au BufRead,BufNewFile *.c 0r ~/.vim/templates/c.vim
-au BufRead,BufNewFile *.cpp 0r ~/.vim/templates/cpp.vim
+"au BufRead,BufNewFile *.cpp 0r ~/.vim/templates/c.vim
 au BufRead,BufNewFile *.h 0r ~/.vim/templates/h.vim
 au BufRead,BufNewFile makefile 0r ~/.vim/templates/makefile.vim
 au BufRead,BufNewFile *.viki set ft=viki
