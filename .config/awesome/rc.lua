@@ -64,31 +64,31 @@ for s = 1, screen.count() do
 end
 --
 
- -- Keyboard map indicator and changer
-    kbdcfg = {}
-    kbdcfg.cmd = "setxkbmap"
-    kbdcfg.layout = { "lv", "us" }
-    kbdcfg.xmodmap = "xmodmap /home/roberts/random/colemak-1.0/xmodmap/xmodmap.colemak && xset r 66"
-    kbdcfg.current = 1  -- us is our default layout
-    kbdcfg.widget = widget({ type = "textbox", align = "right" })
-    kbdcfg.widget.text = " " .. kbdcfg.layout[kbdcfg.current] .. " "
-    kbdcfg.switch = function ()
-       kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
-       local t = " " .. kbdcfg.layout[kbdcfg.current] .. " "
-       kbdcfg.widget.text = t
-       if t == " lv " then
-           os.execute( kbdcfg.cmd .. t )
-           os.execute( "xset -r 66" )
-       else 
-           os.execute( kbdcfg.cmd .. t)
-           os.execute( kbdcfg.xmodmap )
-       end
+-- Keyboard map indicator and changer
+kbdcfg = {}
+kbdcfg.cmd = "setxkbmap"
+kbdcfg.layout = { "lv", "us" }
+kbdcfg.xmodmap = "xmodmap /home/roberts/random/colemak-1.0/xmodmap/xmodmap.colemak && xset r 66"
+kbdcfg.current = 1  -- us is our default layout
+kbdcfg.widget = widget({ type = "textbox", align = "right" })
+kbdcfg.widget.text = " " .. kbdcfg.layout[kbdcfg.current] .. " "
+kbdcfg.switch = function ()
+    kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
+    local t = " " .. kbdcfg.layout[kbdcfg.current] .. " "
+    kbdcfg.widget.text = t
+    if t == " lv " then
+        os.execute( kbdcfg.cmd .. t )
+        os.execute( "xset -r 66" )
+    else 
+        os.execute( kbdcfg.cmd .. t)
+        os.execute( kbdcfg.xmodmap )
     end
-    
-    -- Mouse bindings
-    kbdcfg.widget:buttons(awful.util.table.join(
-        awful.button({ }, 1, function () kbdcfg.switch() end)
-    ))
+end
+
+-- Mouse bindings
+kbdcfg.widget:buttons(awful.util.table.join(
+awful.button({ }, 1, function () kbdcfg.switch() end)
+))
 
 -- }}}
 
@@ -124,6 +124,38 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
+
+mytimer = widget({type = "textbox", align = "right" })
+mytimer_status = 0;
+mytimer.text = '???'
+mytimer_timer = timer({ timeout = 1800 })
+mytimer_timer:add_signal("timeout", function()
+    if mytimer_status == 0 then
+        mytimer_status = 0
+        mytimer.text = '???'
+    elseif mytimer_status == 1 then
+        mytimer_status = 2
+        mytimer.text = "<span color=\"red\">WORK</span>"
+    elseif mytimer_status == 2 then
+        mytimer.text = "<span color=\"green\">PARTY</span>"
+        mytimer_status = 1
+    end
+end)
+
+mytimer_stop = function()
+    mytimer_timer:stop()
+    mytimer_status = 0
+    mytimer.text = "???"
+end
+mytimer_start = function()
+    mytimer_timer:start()
+    mytimer_status = 1
+    mytimer.text = "<span color=\"red\">WORK</span>"
+end
+
+mytimer:buttons(awful.util.table.join(
+awful.button({ }, 1, function () mytimer_start() end),
+awful.button({ }, 3, function () mytimer_stop() end)))
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -199,6 +231,7 @@ for s = 1, screen.count() do
         mylayoutbox[s],
         mytextclock,
         kbdcfg.widget,
+        mytimer,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft

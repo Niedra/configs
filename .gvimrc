@@ -7,13 +7,13 @@ set encoding=utf-8
 set number
 set guioptions=aegirLt
 set gfn=Envy\ Code\ R\ 10
-""colorscheme wombat256
+"colorscheme wombat256
 colorscheme mustang
 
 
 "set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
 "set makeprg=g++\ \-Wall\ -o\ %<\ %
-""set makeprg=gcc\ \-Wall\ -o\ %<\ %
+"set makeprg=gcc\ \-Wall\ -o\ %<\ %
 set autochdir
 set switchbuf=useopen,usetab,newtab
 set nocompatible
@@ -73,11 +73,8 @@ nmap <C-c> :make<CR>
 nmap <F4> :!./%<<CR>
 imap <C-s> <Esc>:w<CR>a
 
-"autocmd Bufwritepre,filewritepre *.cpp exe "1," . 10 . "g/Last Modified: .*/s/Last Modified: .*/Last Modified: " .strftime("%c")
+autocmd Bufwritepre,filewritepre *.cpp exe "1," . 5 . "g/Last Modified:.*/s/Last Modified: .*/Last Modified: " .strftime("%d-%m-%Y %H:%M:%S")
+autocmd Bufwritepre,filewritepre *.h exe "1," . 5 . "g/Last Modified:.*/s/Last Modified: .*/Last Modified: " .strftime("%d-%m-%Y %H:%M:%S")
 
-au BufRead,BufNewFile *.py 0r ~/.vim/templates/py.vim
-au BufRead,BufNewFile *.c 0r ~/.vim/templates/c.vim
 "au BufRead,BufNewFile *.cpp 0r ~/.vim/templates/c.vim
-au BufRead,BufNewFile *.h 0r ~/.vim/templates/h.vim
-au BufRead,BufNewFile makefile 0r ~/.vim/templates/makefile.vim
 au BufRead,BufNewFile *.viki set ft=viki

@@ -61,9 +61,3 @@ nmap <C-c> :make<CR>
 nmap <F4> :!./%<<CR>
 imap <C-s> <Esc>:w<CR>a
 
-au BufNewFile *.py 0r ~/.vim/templates/py.vim
-au BufNewFile *.c 0r ~/.vim/templates/c.vim
-au BufNewFile *.cpp 0r ~/.vim/templates/cpp.vim
-au BufNewFile *.h 0r ~/.vim/templates/h.vim
-au BufNewFile makefile 0r ~/.vim/templates/makefile.vim
-au BufRead,BufNewFile *.viki set ft=viki
