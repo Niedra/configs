@@ -11,13 +11,12 @@ set gfn=Envy\ Code\ R\ 10
 colorscheme mustang
 
 
-"set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
 "set makeprg=g++\ \-Wall\ -o\ %<\ %
 "set makeprg=gcc\ \-Wall\ -o\ %<\ %
 set autochdir
 set switchbuf=useopen,usetab,newtab
 set nocompatible
-set makeprg=make
+"set makeprg=make
 
 set backup
 set backupdir=/tmp      " backup dir
@@ -71,10 +70,19 @@ map <C-P> :TlistToggle<CR>
 nmap <C-s> :w<CR>
 nmap <C-c> :make<CR>
 nmap <F4> :!./%<<CR>
+nmap <F3>:set makeprg=make<CR>
 imap <C-s> <Esc>:w<CR>a
 
+autocmd Bufwritepre,filewritepre *.cpp exe "normal ma"
 autocmd Bufwritepre,filewritepre *.cpp exe "1," . 5 . "g/Last Modified:.*/s/Last Modified: .*/Last Modified: " .strftime("%d-%m-%Y %H:%M:%S")
+autocmd Bufwritepre,filewritepre *.cpp exe "normal `a"
+
+autocmd Bufwritepre,filewritepre *.h exe "normal ma"
 autocmd Bufwritepre,filewritepre *.h exe "1," . 5 . "g/Last Modified:.*/s/Last Modified: .*/Last Modified: " .strftime("%d-%m-%Y %H:%M:%S")
+autocmd Bufwritepre,filewritepre *.h exe "normal `a"
 
 "au BufRead,BufNewFile *.cpp 0r ~/.vim/templates/c.vim
 au BufRead,BufNewFile *.viki set ft=viki
+au BufRead,BufNewFile *.c set makeprg=gcc\ \-Wall\ %\ -o\ %<
+au BufRead,BufNewFile **/book/**.cpp set makeprg=g++\ \-Wall\ %\ -o\ %<
+au BufRead,BufNewFile **/sdl/**.cpp set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
