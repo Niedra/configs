@@ -4,7 +4,7 @@
   G="\e[0;32m"
   O="\e[0;35m"
   Y="\e[0;33m"
-  W="\e[0;32m"
+  W="\e[0;37m"
 
 if [ -n "$DISPLAY" ]; then
      BROWSER=chromium

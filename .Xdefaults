@@ -27,8 +27,8 @@ urxvt.cursorColor: #DDEEDD
 *color6:      #89b6e2
 *color14:     #46a4ff
 ! White
-*color7:      #cccccc
-*color15:     #ffffff
+*color7:      #f2f2f2
+*color15:     #b2b2b2
  
 Xft.dpi:        96
 Xft.antialias:  true
