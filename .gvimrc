@@ -86,3 +86,4 @@ au BufRead,BufNewFile *.viki set ft=viki
 au BufRead,BufNewFile *.c set makeprg=gcc\ \-Wall\ %\ -o\ %<
 au BufRead,BufNewFile **/book/**.cpp set makeprg=g++\ \-Wall\ %\ -o\ %<
 au BufRead,BufNewFile **/sdl/**.cpp set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
+au BufRead,BufNewFile **/sdl/cap*/**.cpp set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
