@@ -27,7 +27,7 @@ alias plowdown='plowdown -o /media/150/rs/'
 alias startmobile='sudo odccm && sync-engine -d'
 alias umountshare='sudo umount.cifs ~/share/'
 alias mountshare='sudo mount -t cifs //192.168.2.102/share share/ -o username=Ni,password=p0k3m0n1 -v'
-alias youtube-dl='youtube-dl -tc '
+alias youtube-dl='youtube-dl -c '
 alias update='sudo pacman -Syu'
 alias arch32='sudo /etc/rc.d/arch32 start && sudo xhost +local: && sudo chroot /opt/arch32'
 
