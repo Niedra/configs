@@ -16,6 +16,7 @@ colorscheme mustang
 set autochdir
 set switchbuf=useopen,usetab,newtab
 set nocompatible
+set nocp
 "set makeprg=make
 
 set backup
@@ -52,6 +53,7 @@ set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 let Tlist_Ctags_Cmd='/usr/bin/ctags'
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+filetype plugin on
 filetype plugin indent on
 
 nmap <C-S-tab> :tabprevious<CR>
