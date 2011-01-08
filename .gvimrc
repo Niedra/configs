@@ -89,4 +89,4 @@ au BufRead,BufNewFile *.c set makeprg=gcc\ \-Wall\ %\ -o\ %<
 au BufRead,BufNewFile *.cpp set makeprg=g++\ \-Wall\ %\ -o\ %<
 au BufRead,BufNewFile **/book/**.cpp set makeprg=g++\ \-Wall\ %\ -o\ %<
 au BufRead,BufNewFile **/sdl/**.cpp set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
-au BufRead,BufNewFile **/sdl/cap*/**.cpp set makeprg=make
+au BufRead,BufNewFile **/sdl/rogue/**.cpp set makeprg=make
