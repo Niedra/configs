@@ -72,7 +72,7 @@ map <C-P> :TlistToggle<CR>
 nmap <C-s> :w<CR>
 nmap <C-c> :make!<CR>
 nmap <F4> :!./main<CR>
-nmap <F3>:set makeprg=make<CR>
+nmap <F3> :!./%<<CR>
 imap <C-s> <Esc>:w<CR>a
 
 autocmd Bufwritepre,filewritepre *.cpp exe "normal ma"
