@@ -75,6 +75,12 @@ nmap <F4> :!./main<CR>
 nmap <F3> :!./%<<CR>
 imap <C-s> <Esc>:w<CR>a
 
+" MINIBUFEXP
+let g:miniBufExplMapWindowNavVim = 1 
+let g:miniBufExplMapWindowNavArrows = 1 
+let g:miniBufExplMapCTabSwitchBufs = 1 
+let g:miniBufExplModSelTarget = 1 
+
 autocmd Bufwritepre,filewritepre *.cpp exe "normal ma"
 autocmd Bufwritepre,filewritepre *.cpp exe "1," . 5 . "g/Last Modified:.*/s/Last Modified: .*/Last Modified: " .strftime("%d-%m-%Y %H:%M:%S")
 autocmd Bufwritepre,filewritepre *.cpp exe "normal `a"
