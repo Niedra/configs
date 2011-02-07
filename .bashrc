@@ -30,6 +30,7 @@ alias mountshare='sudo mount -t cifs //192.168.2.102/share share/ -o username=Ni
 alias youtube-dl='youtube-dl -c '
 alias update='sudo pacman -Syu'
 alias arch32='sudo /etc/rc.d/arch32 start && sudo xhost +local: && sudo chroot /opt/arch32'
+alias lamp='sudo /etc/rc.d/httpd start && sudo /etc/rc.d/mysqld start'
 
 alias startnethack='urxvt -fn "xft:Envy Code R:pixelsize=18" -e nethack'
 alias cpp-up='unison -auto cpp'
