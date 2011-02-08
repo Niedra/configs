@@ -75,6 +75,8 @@ nmap <F4> :!./main<CR>
 nmap <F3> :!./%<<CR>
 imap <C-s> <Esc>:w<CR>a
 
+nmap <silent> ,ev :e $MYGVIMRC<CR>
+
 " MINIBUFEXP
 let g:miniBufExplMapWindowNavVim = 1 
 let g:miniBufExplMapWindowNavArrows = 1 
