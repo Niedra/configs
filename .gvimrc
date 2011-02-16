@@ -95,7 +95,7 @@ autocmd Bufwritepre,filewritepre *.h exe "normal `a"
 au BufRead,BufNewFile *.viki set ft=viki
 au BufRead,BufNewFile *.c set makeprg=gcc\ \-Wall\ %\ -o\ %<
 au BufRead,BufNewFile *.cpp set makeprg=g++\ \-Wall\ \-g\ %\ -o\ %<
-au BufRead,BufNewFile **/book/**.cpp set makeprg=g++\ \-Wall\ %\ -o\ %<
+au BufRead,BufNewFile **/book/**.cpp set makeprg=g++\ %\ -o\ %<
 au BufRead,BufNewFile **/sdl/**.cpp set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
 au BufRead,BufNewFile **/sdl/rogue/**.cpp set makeprg=make
 
@@ -114,3 +114,4 @@ let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) 
 map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 " add current directory's generated tags file to available tags
 set tags+=./tags
+set tags+=~/.vim/tags/stl
