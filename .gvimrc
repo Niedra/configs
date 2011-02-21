@@ -94,7 +94,7 @@ autocmd Bufwritepre,filewritepre *.h exe "normal `a"
 "au BufRead,BufNewFile *.cpp 0r ~/.vim/templates/c.vim
 au BufRead,BufNewFile *.viki set ft=viki
 au BufRead,BufNewFile *.c set makeprg=gcc\ \-Wall\ %\ -o\ %<
-au BufRead,BufNewFile *.cpp set makeprg=g++\ \-Wall\ \-g\ %\ -o\ %<
+au BufRead,BufNewFile *.cpp set makeprg=g++\ \-Wall\ \-g\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ \-lSDL_mixer\ %\ -o\ %<
 au BufRead,BufNewFile **/book/**.cpp set makeprg=g++\ %\ -o\ %<
 au BufRead,BufNewFile **/sdl/**.cpp set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
 au BufRead,BufNewFile **/sdl/rogue/**.cpp set makeprg=make
