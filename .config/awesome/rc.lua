@@ -53,7 +53,7 @@ layouts =
 tags = {
     settings = {
         { names  = {"terms", "web", "code", "docs", "im", "else"},
-        layout = { layouts[4], layouts[12], layouts[3], layouts[3], layouts[3], layouts[12] }
+        layout = { layouts[2], layouts[12], layouts[3], layouts[3], layouts[3], layouts[12] }
     },
     { names  = {"terms", "irc", "im", "else"},
     layout = { layouts[4], layouts[4], layouts[6], layouts[1] }
