@@ -24,6 +24,7 @@ set backupdir=/tmp      " backup dir
 set directory=/tmp      " swap file directory
 
 set incsearch
+set hlsearch
 set expandtab
 set textwidth=80
 set lines=60
@@ -62,7 +63,6 @@ map <C-S-tab> :tabprevious<CR>
 map <C-tab> :tabnext<CR>
 imap <C-S-tab> <Esc>:tabprevious<CR>i
 imap <C-tab> <Esc>:tabnext<CR>i
-map tt :tabnew<CR><ESC>:NERDTreeToggle<RETURN>
 map <C-t> <Esc>:NERDTreeToggle<CR>
 :map <C-c> :tabclose<CR>
 
@@ -82,6 +82,9 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1 
+
+" NERDTree
+let NERDTreeShowBookmarks = 1
 
 autocmd Bufwritepre,filewritepre *.cpp exe "normal ma"
 autocmd Bufwritepre,filewritepre *.cpp exe "1," . 5 . "g/Last Modified:.*/s/Last Modified: .*/Last Modified: " .strftime("%d-%m-%Y %H:%M:%S")
