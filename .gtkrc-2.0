@@ -3,7 +3,7 @@
 
 gtk-theme-name="Aurora"
 gtk-icon-theme-name="gnome-brave"
-gtk-font-name="Envy Code R 10"
+gtk-font-name="Myriad Pro 10"
 gtk-cursor-theme-name="OpenZone_Black"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
