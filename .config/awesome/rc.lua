@@ -1,4 +1,4 @@
--- Standard awesome library
+    -- Standard awesome library
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
@@ -125,37 +125,37 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
-mytimer = widget({type = "textbox", align = "right" })
-mytimer_status = 0;
-mytimer.text = '???'
-mytimer_timer = timer({ timeout = 1800 })
-mytimer_timer:add_signal("timeout", function()
-    if mytimer_status == 0 then
-        mytimer_status = 0
-        mytimer.text = '???'
-    elseif mytimer_status == 1 then
-        mytimer_status = 2
-        mytimer.text = "<span color=\"red\">WORK</span>"
-    elseif mytimer_status == 2 then
-        mytimer.text = "<span color=\"green\">PARTY</span>"
-        mytimer_status = 1
-    end
-end)
-
-mytimer_stop = function()
-    mytimer_timer:stop()
-    mytimer_status = 0
-    mytimer.text = "???"
-end
-mytimer_start = function()
-    mytimer_timer:start()
-    mytimer_status = 1
-    mytimer.text = "<span color=\"red\">WORK</span>"
-end
-
-mytimer:buttons(awful.util.table.join(
-awful.button({ }, 1, function () mytimer_start() end),
-awful.button({ }, 3, function () mytimer_stop() end)))
+-- mytimer = widget({type = "textbox", align = "right" })
+-- mytimer_status = 0;
+-- mytimer.text = '???'
+-- mytimer_timer = timer({ timeout = 1800 })
+-- mytimer_timer:add_signal("timeout", function()
+--     if mytimer_status == 0 then
+--         mytimer_status = 0
+--         mytimer.text = '???'
+--     elseif mytimer_status == 1 then
+--         mytimer_status = 2
+--         mytimer.text = "<span color=\"red\">WORK</span>"
+--     elseif mytimer_status == 2 then
+--         mytimer.text = "<span color=\"green\">PARTY</span>"
+--         mytimer_status = 1
+--     end
+-- end)
+-- 
+-- mytimer_stop = function()
+--     mytimer_timer:stop()
+--     mytimer_status = 0
+--     mytimer.text = "???"
+-- end
+-- mytimer_start = function()
+--     mytimer_timer:start()
+--     mytimer_status = 1
+--     mytimer.text = "<span color=\"red\">WORK</span>"
+-- end
+-- 
+-- mytimer:buttons(awful.util.table.join(
+-- awful.button({ }, 1, function () mytimer_start() end),
+-- awful.button({ }, 3, function () mytimer_stop() end)))
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -231,7 +231,7 @@ for s = 1, screen.count() do
         mylayoutbox[s],
         mytextclock,
         kbdcfg.widget,
-        mytimer,
+        --mytimer,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
