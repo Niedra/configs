@@ -386,8 +386,6 @@ awful.rules.rules = {
                      focus = true,
                      keys = clientkeys,
                      buttons = clientbuttons } },
-    { rule = { class = "pong" },
-      properties = { floating = true } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
     { rule = { class = "pinentry" },
@@ -395,16 +393,18 @@ awful.rules.rules = {
     { rule = { class = "GNU Image Manipulation Program" },
       properties = { floating = true } },
     -- Set Skype to always map on tags number 2 of screen 1.
-    --{ rule = { class = "Skype" },
-      --properties = { tag = tags[2][3] } },
+    { rule = { class = "Skype" },
+      properties = { tag = tags[1][5] } },
     { rule = { class = "Okular" },
       properties = { tag = tags[1][4] } },
     { rule = { class = "OpenOffice" },
       properties = { tag = tags[1][4] } },
-    { rule = { class = "GVIM" },
+    { rule = { class = "gvim" },
       properties = { tag = tags[1][3] } },
     { rule = { class = "Chromium" },
       properties = { tag = tags[1][2] } },
+    { rule = { class = "Eclipse" },
+      properties = { tag = tags[1][3] } },
 }
 -- }}}
 
