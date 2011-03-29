@@ -394,7 +394,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     -- Set Skype to always map on tags number 2 of screen 1.
     { rule = { class = "Skype" },
-      properties = { tag = tags[1][5] } },
+      properties = { tag = tags[2][3] } },
     { rule = { class = "Okular" },
       properties = { tag = tags[1][4] } },
     { rule = { class = "OpenOffice" },

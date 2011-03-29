@@ -27,7 +27,7 @@ alias plowdown='plowdown -o /media/150/rs/'
 alias startmobile='sudo odccm && sync-engine -d'
 alias umountshare='sudo umount.cifs ~/share/'
 alias mountshare='sudo mount -t cifs //192.168.2.102/share share/ -o username=Ni,password=p0k3m0n1 -v'
-alias youtube-dl='youtube-dl -c '
+alias youtube-dl='youtube-dl -c -f 22 -t'
 alias update='sudo pacman -Syu'
 alias arch32='sudo /etc/rc.d/arch32 start && sudo xhost +local: && sudo chroot /opt/arch32'
 alias lamp='sudo /etc/rc.d/httpd start && sudo /etc/rc.d/mysqld start'
@@ -35,10 +35,17 @@ alias lamp='sudo /etc/rc.d/httpd start && sudo /etc/rc.d/mysqld start'
 alias startnethack='urxvt -fn "xft:Envy Code R:pixelsize=18" -e nethack'
 alias cpp-up='unison -auto cpp'
 
+
 gcco() {
     local IN=$*;
     local OUT=${IN%.c};
     echo "Compilling $IN into $OUT";
     
     gcc -o $OUT $IN;
+}
+
+restart_mod() {
+    local IN=$*;
+    
+    sudo /etc/rc.d/${IN} restart
 }
