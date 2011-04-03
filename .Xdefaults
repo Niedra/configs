@@ -51,8 +51,8 @@ urxvt*scrollBar:false
 urxvt*geometry:	165x55
 urxvt*internalBorder:     2
 urxvt*borderLess: false
-urxvt*fading:            30
-urxvt*shading:            50
+urxvt*fading:            45
+urxvt*shading:            25
 urxvt*tintColor:          #cacaca
 #urxvt*inheritPixmap:      true
 urxvt*depth:              24
