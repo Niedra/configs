@@ -71,7 +71,7 @@ map <C-P> :TlistToggle<CR>
 
 nmap <C-s> :w<CR>
 nmap <C-c> :make!<CR>
-nmap <F4> :!./main<CR>
+nmap <F4> :!cd .. && ./main<CR>
 nmap <F3> :!./%<<CR>
 imap <C-s> <Esc>:w<CR>a
 
@@ -101,7 +101,7 @@ au BufRead,BufNewFile *.cpp set makeprg=g++\ \-Wall\ \-g\ \-lSDL\ \-lSDL_image\ 
 au BufRead,BufNewFile **/book/**.cpp set makeprg=g++\ \-Wall\ \-g\ %\ -o\ %<
 au BufRead,BufNewFile **/uni/**.cpp set makeprg=g++\ \-Wall\ \-g\ %\ -o\ %<
 au BufRead,BufNewFile **/sdl/**.cpp set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
-au BufRead,BufNewFile **/sdl/rogue/**.cpp set makeprg=make
+au BufRead,BufNewFile **/sdl/rogue/**.cpp set makeprg=make\ -C\ ..\/build\/
 
 " OmniCpp
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
