@@ -102,6 +102,7 @@ au BufRead,BufNewFile **/book/**.cpp set makeprg=g++\ \-Wall\ \-g\ %\ -o\ %<
 au BufRead,BufNewFile **/uni/**.cpp set makeprg=g++\ \-Wall\ \-g\ %\ -o\ %<
 au BufRead,BufNewFile **/sdl/**.cpp set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
 au BufRead,BufNewFile **/sdl/rogue/**.cpp set makeprg=make\ -C\ ..\/build\/
+au BufRead,BufNewFile **/sdl/LD20/**.cpp set makeprg=make\ -C\ ..\/build\/
 
 " OmniCpp
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
