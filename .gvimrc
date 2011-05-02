@@ -72,6 +72,7 @@ map <C-P> :TlistToggle<CR>
 nmap <C-s> :w<CR>
 nmap <C-c> :make!<CR>
 nmap <F4> :!cd .. && ./main<CR>
+nmap <F5> :!cd .. && ./editor<CR>
 nmap <F3> :!./%<<CR>
 imap <C-s> <Esc>:w<CR>a
 
