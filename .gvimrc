@@ -24,7 +24,7 @@ set backupdir=/tmp      " backup dir
 set directory=/tmp      " swap file directory
 
 set incsearch
-set hlsearch
+"set hlsearch
 set expandtab
 set textwidth=80
 set lines=60
