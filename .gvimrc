@@ -14,7 +14,7 @@ colorscheme mustang
 "set makeprg=g++\ \-Wall\ -o\ %<\ %
 "set makeprg=gcc\ \-Wall\ -o\ %<\ %
 set autochdir
-set switchbuf=useopen,usetab,newtab
+set switchbuf=useopen,split
 set nocompatible
 set nocp " non vi compatible mode
 "set makeprg=make
@@ -78,6 +78,16 @@ nmap <F6> :!./%<CR>
 imap <C-s> <Esc>:w<CR>a
 
 nmap <silent> ,ev :e $MYGVIMRC<CR>
+
+" Tabularize
+let mapleader=','
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+
 
 " MINIBUFEXP
 let g:miniBufExplMapWindowNavVim = 1 
