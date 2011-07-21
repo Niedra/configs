@@ -397,7 +397,7 @@ awful.rules.rules = {
       properties = { tag = tags[2][3] } },
     { rule = { class = "Okular" },
       properties = { tag = tags[1][4] } },
-    { rule = { class = "OpenOffice" },
+    { rule = { class = "LibreOffice" },
       properties = { tag = tags[1][4] } },
     { rule = { class = "gvim" },
       properties = { tag = tags[1][3] } },
