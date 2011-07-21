@@ -101,6 +101,7 @@ au BufRead,BufNewFile *.c set makeprg=gcc\ \-Wall\ %\ -o\ %<
 au BufRead,BufNewFile *.cpp set makeprg=g++\ \-Wall\ \-g\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ \-lSDL_mixer\ %\ -o\ %<
 au BufRead,BufNewFile **/book/**.cpp set makeprg=g++\ \-Wall\ \-g\ %\ -o\ %<
 au BufRead,BufNewFile **/uni/**.cpp set makeprg=g++\ \-Wall\ \-g\ %\ -o\ %<
+au BufRead,BufNewFile **/lua/**.cpp set makeprg=g++\ \-Wall\ \-g\ \-lluabind\ \-llua\ %\ -o\ %<
 au BufRead,BufNewFile **/sdl/**.cpp set makeprg=g++\ \-lSDL\ \-lSDL_image\ \-lSDL_ttf\ -o\ %<\ %
 au BufRead,BufNewFile **/sdl/rogue/**.cpp set makeprg=make\ -C\ ..\/build\/
 au BufRead,BufNewFile **/sdl/LD20/**.cpp set makeprg=make\ -C\ ..\/build\/
