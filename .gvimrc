@@ -10,6 +10,14 @@ set gfn=Envy\ Code\ R\ 10
 "colorscheme wombat256
 colorscheme mustang
 
+" highlight after 80 chars
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+let $PATH = '/opt/crosstool/mingw32/gcc-3.4.2/bin:/opt/crosstool/mips-linux-uclibc/gcc-4.5.0-uClibc-0.9.30.2/bin:/opt/crosstool/i386-linux-uclibc/gcc-4.5.0-uClibc-0.9.30.2/bin:/opt/crosstool/i686-linux-uclibc/gcc-4.5.0-uClibc-0.9.30.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games'
+
+" Pathogen
+call pathogen#infect()
 
 "set makeprg=g++\ \-Wall\ -o\ %<\ %
 "set makeprg=gcc\ \-Wall\ -o\ %<\ %
@@ -28,10 +36,10 @@ set incsearch
 set expandtab
 set textwidth=80
 set lines=60
-set tabstop=4
+set tabstop=8
 set softtabstop=4
 set shiftwidth=4
-set autoindent
+"set autoindent
 set guioptions-=r
 set guioptions+=l
 set guioptions-=l
@@ -53,9 +61,53 @@ set statusline+=0x%-8B\                      " current char
 set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 let Tlist_Ctags_Cmd='/usr/bin/ctags'
+let Tlist_WinWidth = 50
+
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 filetype plugin on
 filetype plugin indent on
+
+" ex command for toggling hex mode - define mapping if desired
+command -bar Hexmode call ToggleHex()
+
+" helper function to toggle hex mode
+function ToggleHex()
+  " hex mode should be considered a read-only operation
+  " save values for modified and read-only for restoration later,
+  " and clear the read-only flag for now
+  let l:modified=&mod
+  let l:oldreadonly=&readonly
+  let &readonly=0
+  let l:oldmodifiable=&modifiable
+  let &modifiable=1
+  if !exists("b:editHex") || !b:editHex
+    " save old options
+    let b:oldft=&ft
+    let b:oldbin=&bin
+    " set new options
+    setlocal binary " make sure it overrides any textwidth, etc.
+    let &ft="xxd"
+    " set status
+    let b:editHex=1
+    " switch to hex editor
+    %!xxd
+  else
+    " restore old options
+    let &ft=b:oldft
+    if !b:oldbin
+      setlocal nobinary
+    endif
+    " set status
+    let b:editHex=0
+    " return to normal editing
+    %!xxd -r
+  endif
+  " restore values for modified and read only state
+  let &mod=l:modified
+  let &readonly=l:oldreadonly
+  let &modifiable=l:oldmodifiable
+endfunction
+
 
 nmap <C-S-tab> :tabprevious<CR>
 nmap <C-tab> :tabnext<CR>
@@ -68,6 +120,7 @@ map <C-t> <Esc>:NERDTreeToggle<CR>
 
 map T :TaskList<CR>
 map <C-P> :TlistToggle<CR> 
+map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 nmap <C-s> :w<CR>
 nmap <C-c> :make!<CR>
@@ -77,6 +130,9 @@ nmap <F3> :!./%<<CR>
 nmap <F6> :!./%<CR>
 imap <C-s> <Esc>:w<CR>a
 
+nnoremap <C-H> :Hexmode<CR>
+inoremap <C-H> <Esc>:Hexmode<CR>
+vnoremap <C-H> :<C-U>Hexmode<CR>
 nmap <silent> ,ev :e $MYGVIMRC<CR>
 
 " Tabularize
@@ -133,3 +189,15 @@ map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 " add current directory's generated tags file to available tags
 set tags+=./tags
 set tags+=~/.vim/tags/stl
+
+function! ToggleIndentGuides()
+    if exists('b:indent_guides')
+        call matchdelete(b:indent_guides)
+        unlet b:indent_guides
+    else
+        let pos = range(1, &l:textwidth, &l:shiftwidth)
+        call map(pos, '"\\%" . v:val . "v"')
+        let pat = '\%(\_^\s*\)\@<=\%(' . join(pos, '\|') . '\)\s'
+        let b:indent_guides = matchadd('CursorLine', pat)
+    endif
+endfunction
