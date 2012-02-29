@@ -148,3 +148,9 @@ call pathogen#infect()
 
 " Sessions
 let g:session_autosave='yes'
+
+" Easier window management
+nmap <left>  :3wincmd <<cr>
+nmap <right> :3wincmd ><cr>
+nmap <up>    :3wincmd +<cr>
+nmap <down>  :3wincmd -<cr>
