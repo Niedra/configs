@@ -10,11 +10,12 @@ if [ -n "$DISPLAY" ]; then
      BROWSER=chromium
 fi
 
-if [ '/usr/bin/whoami' = root ]
+if [ `whoami` == root ]
 then
-    export PS1="\[$B\][ \[$Y\]\A \[$B\]][ \[$G\]\h:\w \[$B\]]\[$Y\] ─\[$Y\]> \[$W\]"
+    PS1="\[$R\][ \[$Y\]\A \[$R\]][ \[$O\]\h:\w \[$R\]]\[$Y\] » \[$W\]"
+else
+    PS1="\[$B\][ \[$Y\]\A \[$B\]][ \[$O\]\h:\w \[$B\]]\[$Y\] » \[$W\]"
 fi
-PS1="\[$B\][ \[$Y\]\A \[$B\]][ \[$O\]\h:\w \[$B\]]\[$Y\] » \[$W\]"
 
 alias ls='ls -hF --color --group-directories-first'
 alias svnup='svn update /srv/http/'

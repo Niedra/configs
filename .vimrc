@@ -2,6 +2,11 @@ syntax on
 filetype plugin on
 filetype plugin indent on
 
+let mapleader=","
+let g:mapleader=","
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
+let Tlist_WinWidth = 50
+
 set encoding=utf-8
 set number
 set guioptions=aegirLt
@@ -67,10 +72,6 @@ set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 let g:Powerline_symbols='fancy'
 
-let mapleader=','
-let Tlist_Ctags_Cmd='/usr/bin/ctags'
-let Tlist_WinWidth = 50
-
 map T :TaskList<CR>
 map <C-P> :TlistToggle<CR> 
 map <F8> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
@@ -81,15 +82,16 @@ nmap <F5> :make ARCH=mips install PREFIX=$PWD/X<CR>
 nmap <F3> :!./%<<CR>
 nmap <F9> :!g++ -Wall -g -o %< %<CR>
 nmap <F6> :!./%<CR>
-nmap <leader>w :w<CR>
 
 nnoremap <C-H> :Hexmode<CR>
 inoremap <C-H> <Esc>:Hexmode<CR>
 vnoremap <C-H> :<C-U>Hexmode<CR>
-nmap <silent> ,ev :e $MYGVIMRC<CR>
 
-map <leader>v <Plug>TaskList
-map <silent> <leader>n :silent :nohlsearch<CR>
+map <Leader>v <Plug>TaskList
+map <silent> <Leader>n :silent :nohlsearch<CR>
+nmap <silent> <Leader>s :w<CR>
+nmap <silent> <Leader>q :q<CR>
+nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 
 
 " Tabularize

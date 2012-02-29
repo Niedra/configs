@@ -1,5 +1,5 @@
 Xcursor.theme: OpenZone_Black
-urxvt.cursorColor: #DDEEDD
+urxvt.cursorColor: #ddeedd
  
 ! tangoesque scheme
 ! *background:  #1E2320
@@ -63,7 +63,6 @@ urxvt.scrollWithBuffer:   false
 urxvt.scrollTtyOutput:    false
 urxvt.scrollstyle:       plain
 urxvt.scrollColor:        #777777
-urxvt.cursorColor:        #ffcc00
 urxvt.loginShell:         true
 urxvt.termName:           rxvt
 urxvt.cutchars:           "()*,<>[]{}|'
