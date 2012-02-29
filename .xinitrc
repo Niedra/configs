@@ -14,7 +14,7 @@ awesome)
         mpdscribble &
         fi
 
-    	exec awesome
+    	exec ssh-agent awesome
         ;;
 openbox)
 	    openbox-session
