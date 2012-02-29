@@ -34,9 +34,29 @@ alias arch32='sudo /etc/rc.d/arch32 start && sudo xhost +local: && sudo chroot /
 alias lamp='sudo /etc/rc.d/httpd start && sudo /etc/rc.d/mysqld start'
 alias gr='grep -iR $1 */*.{cpp,h,cc}'
 
+alias cdcpp='cd ~/workspace/cpp'
+alias cdadv='cd /srv/http/advice/'
+
 alias startnethack='urxvt -fn "xft:Envy Code R:pixelsize=18" -e nethack'
 alias cpp-up='unison -auto cpp'
 
+alias ga='git add'
+alias gp='git push'
+alias gl='git log --pretty=format:"%Cgreen%h %Creset %s %Cblueby %an (%ar) %Cred %d" --graph'
+alias gs='git status'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gm='git commit'
+alias gma='git commit -a'
+alias gb='git branch'
+alias gc='git checkout'
+alias gra='git remote add'
+alias grr='git remote rm'
+alias gpu='git pull'
+alias gcl='git clone'
+
+alias halt='sudo halt'
+alias reboot='sudo reboot'
 
 gcco() {
     local IN=$*;

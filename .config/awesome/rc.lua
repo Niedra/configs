@@ -281,11 +281,12 @@ globalkeys = awful.util.table.join(
 
 
     -- My bindings
-    awful.key({ modkey,           }, "e", function () awful.util.spawn("pcmanfm-mod") end),
+    awful.key({ modkey,           }, "e", function () awful.util.spawn("pcmanfm") end),
     awful.key({ modkey,           }, "c", function () awful.util.spawn("chromium") end),
     awful.key({ modkey,   "Shift" }, "f", function () awful.util.spawn("firefox") end),
     awful.key({"Control", "Shift" }, "x", function () awful.util.spawn("ncmpcpp toggle") end),
     awful.key({ modkey,           }, "g", function () awful.util.spawn("gvim") end),
+    awful.key({ modkey,           }, "z", function () awful.util.spawn("qalculate") end),
 
 
     -- Standard program
@@ -388,13 +389,15 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
-    { rule = { class = "pinentry" },
+    { rule = { instance = "qalculate" },
       properties = { floating = true } },
+    { rule = { instance = "libreoffice" },
+      properties = { floating = false, tag = tags[1][4] } },
     { rule = { class = "GNU Image Manipulation Program" },
       properties = { floating = true } },
     -- Set Skype to always map on tags number 2 of screen 1.
     { rule = { class = "Skype" },
-      properties = { tag = tags[2][3] } },
+      properties = { tag = tags[1][5] } },
     { rule = { class = "Okular" },
       properties = { tag = tags[1][4] } },
     { rule = { class = "LibreOffice" },
@@ -440,4 +443,5 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- }}}
 
 -- Autostart
-awful.util.spawn_with_shell("nitrogen --restore")
+awful.util.spawn_with_shell("xrandr --output DVI-I-1 --auto")
+awful.util.spawn_with_shell("xrandr --output DVI-I-2 --auto --right-of DVI-I-1")

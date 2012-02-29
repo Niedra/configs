@@ -5,6 +5,7 @@ theme = {}
  
 -- {{{ Styles
 theme.font      = "Envy\ Code\ R\ 8"
+theme.wallpaper_cmd = {"nitrogen --restore"}
 
 -- {{{ Colors
 theme.fg_normal = "#EBAC54"

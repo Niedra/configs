@@ -3,8 +3,8 @@ urxvt.cursorColor: #DDEEDD
  
 ! tangoesque scheme
 ! *background:  #1E2320
-*background:  #242424
-*foreground:  #aaaaaa
+urxvt*background:  #242424
+urxvt*foreground:  #aaaaaa
 ! Black
 *color0:      #000000
 *color8:      #555753
@@ -44,35 +44,35 @@ URxvt.tabbed.tab-bg: -1
 
 ! rxvt-unicode ---------------------------------------------------------------
 
-urxvt.perl-ext-common: default
-urxvt*font:xft:Envy Code R:size=10:autohint=true
-urxvt*transparent:true
-urxvt*scrollBar:false
-urxvt*geometry:	165x55
-urxvt*internalBorder:     2
-urxvt*borderLess: false
-urxvt*fading:            45
-urxvt*shading:            25
-urxvt*tintColor:          #cacaca
-#urxvt*inheritPixmap:      true
-urxvt*depth:              24
-urxvt*saveLines:          32767
-urxvt*visualBell:         true
-urxvt*scrollTtyKeypress:  true
-urxvt*scrollWithBuffer:   false
-urxvt*scrollTtyOutput:    false
-urxvt*scrollstyle:       plain 
-urxvt*scrollColor:        #777777
-urxvt*cursorColor:        #ffcc00
-urxvt*loginShell:         true
-urxvt*termName:           rxvt
-urxvt*cutchars:           "()*,<>[]{}|'
-urxvt*print-pipe:         cat > $(echo urxvt.dump.`date +'%Y%M%d%H%m%S'`)
-urxvt*secondaryScroll:    true
-urxvt*mapAlert:           true
-urxvt*utmpInhibit:        true
-urxvt*perl-lib:           /usr/lib/urxvt/perl/
-urxvt.perl-ext-common:    default,matcher,clipboard
+urxvt.font:xft:Envy Code R for Powerline:size=9:antialias=false:hinting=true
+!urxvt.letterSpace: 1
+urxvt.scrollBar:off
+urxvt.transparent:true
+urxvt.geometry:	165x55
+urxvt.internalBorder:     2
+urxvt.borderLess: false
+urxvt.fading:             10
+urxvt.shading:            40
+urxvt.tintColor:          #242424
+!urxvt*inheritPixmap:      true
+urxvt.depth:              32
+urxvt.saveLines:          32767
+urxvt.visualBell:         true
+urxvt.scrollTtyKeypress:  true
+urxvt.scrollWithBuffer:   false
+urxvt.scrollTtyOutput:    false
+urxvt.scrollstyle:       plain
+urxvt.scrollColor:        #777777
+urxvt.cursorColor:        #ffcc00
+urxvt.loginShell:         true
+urxvt.termName:           rxvt
+urxvt.cutchars:           "()*,<>[]{}|'
+urxvt.print-pipe:         cat > $(echo urxvt.dump.`date +'%Y%M%d%H%m%S'`)
+urxvt.secondaryScroll:    true
+urxvt.mapAlert:           true
+urxvt.utmpInhibit:        true
+urxvt.perl-lib:           /usr/lib/urxvt/perl/
+urxvt.perl-ext-common:    default,matcher
 urxvt.urlLauncher:        /usr/bin/chromium
 urxvt.matcher.button:     1
 !urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
@@ -83,13 +83,13 @@ urxvt.matcher.button:     1
 ! xscreensaver ---------------------------------------------------------------
 
 !font settings
-xscreensaver.Dialog.headingFont:        -*-Envy Code R-bold-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.bodyFont:           -*-Envy Code R-bold-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.labelFont:          -*-Envy Code R-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.unameFont:          -*-Envy Code R-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.buttonFont:         -*-Envy Code R-bold-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.Dialog.dateFont:           -*-Envy Code R-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.passwd.passwdFont:         -*-Envy Code R-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.headingFont:        -*-Envy Code R-bold-r-*-*-9-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-Envy Code R-bold-medium-r-*-*-9-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-Envy Code R-medium-r-*-*-9-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-Envy Code R-medium-r-*-*-9-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-Envy Code R-bold-r-*-*-9-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-Envy Code R-medium-r-*-*-9-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-Envy Code R-bold-r-*-*-9-*-*-*-*-*-*-*
 !general dialog box (affects main hostname, username, password text)
 xscreensaver.Dialog.foreground:         #ffffff
 xscreensaver.Dialog.background:         #111111
