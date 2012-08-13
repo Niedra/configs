@@ -8,6 +8,10 @@ case $1 in
 awesome)
         setxkbmap lv -variant tilde &
         dropboxd &
+        #xrandr --screen 0 -s 1680x1050 &
+        #xrandr --auto --output DVI-I-1 &
+        #xrandr --auto --output DVI-I-2 --left-of DVI-I-1 &
+        #xrandr --auto --output DVI-I-1 &
 
         pidof mpdscribble >& /dev/null
         if [ $? -ne 0 ]; then

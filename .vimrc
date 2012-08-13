@@ -25,7 +25,7 @@ set autochdir
 set switchbuf=useopen,split
 set nocompatible
 set nocp " non vi compatible mode
-set makeprg=make
+set makeprg=make\ -j\ ARCH=mips
 
 set ignorecase
 set smartcase
@@ -92,6 +92,7 @@ map <silent> <Leader>n :silent :nohlsearch<CR>
 nmap <silent> <Leader>s :w<CR>
 nmap <silent> <Leader>q :q<CR>
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
+nmap <silent> <Leader>f :execute "grep --color " . expand('<cword>') . " *"<CR>
 
 
 " Tabularize
@@ -106,7 +107,7 @@ endif
 let g:CommandTMaxFiles = 100000
 set wildignore+=*.o,*.d,.git,*.pd
 
-" OmniCpp
+"" -- OmniCpp --
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "set completeopt=menu,menuone
 "
@@ -120,8 +121,8 @@ set wildignore+=*.o,*.d,.git,*.pd
 "let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup window
 "let OmniCpp_ShowAccess = 1
 "
-"" -- ctags --
-"set tags=./tags;$HOME
+" -- ctags --
+" set tags=./tags;$HOME
 "
 "function! UPDATE_TAGS()
 "  "let _f_ = expand("%:p")
@@ -133,23 +134,27 @@ set wildignore+=*.o,*.d,.git,*.pd
 "endfunction
 "autocmd BufWrite *.cpp,*.h,*.c call UPDATE_TAGS()
 
-"function! ToggleIndentGuides()
-"    if exists('b:indent_guides')
-"        call matchdelete(b:indent_guides)
-"        unlet b:indent_guides
-"    else
-"        let pos = range(1, &l:textwidth, &l:shiftwidth)
-"        call map(pos, '"\\%" . v:val . "v"')
-"        let pat = '\%(\_^\s*\)\@<=\%(' . join(pos, '\|') . '\)\s'
-"        let b:indent_guides = matchadd('CursorLine', pat)
-"    endif
-"endfunction
-
 " Pathogen
 call pathogen#infect()
 
 " Sessions
 let g:session_autosave='yes'
+
+" Cscope
+if has('cscope')
+    set cscopetag cscopeverbose
+
+    if has('quickfix')
+        set cscopequickfix=s-,c-,d-,i-,t-,e-
+    endif
+
+    cnoreabbrev csa cs add
+    cnoreabbrev csf cs find
+    cnoreabbrev csk cs kill
+    cnoreabbrev csr cs reset
+    cnoreabbrev css cs show
+    cnoreabbrev csh cs help
+endif
 
 " Easier window management
 nmap <left>  :3wincmd <<cr>

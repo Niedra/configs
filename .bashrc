@@ -10,7 +10,7 @@ if [ -n "$DISPLAY" ]; then
      BROWSER=chromium
 fi
 
-if [ `whoami` == root ]
+if [ `/usr/bin/whoami` == root ]
 then
     PS1="\[$R\][ \[$Y\]\A \[$R\]][ \[$O\]\h:\w \[$R\]]\[$Y\] » \[$W\]"
 else
@@ -20,30 +20,31 @@ fi
 alias ls='ls -hF --color --group-directories-first'
 alias svnup='svn update /srv/http/'
 
-alias mv='mv -v'
+alias mv='mv -vi'
 alias cp='cp -v'
 alias unrarx='unrar x *.rar'
 alias df='df -h'
 alias du='du -h -c'
-alias plowdown='plowdown -o /media/150/rs/'
-alias startmobile='sudo odccm && sync-engine -d'
-alias umountshare='sudo umount.cifs ~/share/'
-alias mountshare='sudo mount -t cifs //192.168.2.102/share share/ -o username=Ni,password=p0k3m0n1 -v'
-alias youtube-dl='youtube-dl -c -f 22 -t'
 alias update='sudo pacman -Syu'
 alias arch32='sudo /etc/rc.d/arch32 start && sudo xhost +local: && sudo chroot /opt/arch32'
 alias lamp='sudo /etc/rc.d/httpd start && sudo /etc/rc.d/mysqld start'
-alias gr='grep -iR $1 */*.{cpp,h,cc}'
+alias gr='grep -iR $1 */*.{cpp,h}'
+alias psgrep='ps auxf|grep $1'
+alias grep='grep --color -n'
+alias findn='find . -name $1'
+alias make='make -j 6'
 
 alias cdcpp='cd ~/workspace/cpp'
 alias cdadv='cd /srv/http/advice/'
 
-alias startnethack='urxvt -fn "xft:Envy Code R:pixelsize=18" -e nethack'
-alias cpp-up='unison -auto cpp'
+cpp2asm() {
+    g++ -c -g -Wa,-a,-ad $1 > $2
+}
 
 alias ga='git add'
 alias gp='git push'
-alias gl='git log --pretty=format:"%Cgreen%h %Creset %s %Cblueby %an (%ar) %Cred %d" --graph'
+alias gl='git log --pretty=format:"%Cgreen%h %Creset %s %Cblueby %an (%ai) %Cred %d" --graph'
+alias glm='gl --author rob'
 alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -55,17 +56,11 @@ alias gra='git remote add'
 alias grr='git remote rm'
 alias gpu='git pull'
 alias gcl='git clone'
+alias gg='git grep -n -p --color'
+alias gst='git stash'
 
 alias halt='sudo halt'
 alias reboot='sudo reboot'
-
-gcco() {
-    local IN=$*;
-    local OUT=${IN%.c};
-    echo "Compilling $IN into $OUT";
-    
-    gcc -o $OUT $IN;
-}
 
 restart_mod() {
     local IN=$*;
@@ -99,6 +94,7 @@ function test_identities {
     fi
 }
 
+#PATH=/home/roberts/scripts/:$PATH
 # check for running ssh-agent with proper $SSH_AGENT_PID
 if [ -n "$SSH_AGENT_PID" ]; then
     ps -ef | grep "$SSH_AGENT_PID" | grep ssh-agent > /dev/null

@@ -1,6 +1,44 @@
 Xcursor.theme: OpenZone_Black
 urxvt.cursorColor: #ddeedd
  
+! rxvt-unicode ---------------------------------------------------------------
+
+urxvt.font:xft:Envy Code R for Powerline-10:antialias=true:hinting=true
+urxvt.letterSpace: -1
+urxvt.scrollBar:off
+urxvt.transparent:false
+urxvt.geometry:	165x55
+urxvt.internalBorder:     2
+urxvt.borderLess: false
+urxvt.fading:             10
+urxvt.shading:            114
+urxvt.tintColor:          #060606
+urxvt.inheritPixmap:      true
+urxvt.depth:              32
+urxvt.saveLines:          32767
+urxvt.visualBell:         true
+urxvt.scrollTtyKeypress:  true
+urxvt.scrollWithBuffer:   false
+urxvt.scrollTtyOutput:    false
+urxvt.scrollstyle:       plain
+urxvt.scrollColor:        #777777
+urxvt.loginShell:         true
+urxvt.termName:           rxvt
+urxvt.cutchars:           "()*,<>[]{}|'
+urxvt.print-pipe:         cat > $(echo urxvt.dump.`date +'%Y%M%d%H%m%S'`)
+urxvt.secondaryScroll:    true
+urxvt.mapAlert:           true
+urxvt.utmpInhibit:        true
+urxvt.perl-lib:           /usr/lib/urxvt/perl/
+urxvt.perl-ext-common:    default,matcher
+urxvt.urlLauncher:        /usr/bin/chromium
+urxvt.matcher.button:     1
+!urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+!urxvt*background:         #191919
+!urxvt*background:         rgba:2222/2222/2222/dddd
+!urxvt*background:         rgba:0000/0000/0000/dddd
+
+
 ! tangoesque scheme
 ! *background:  #1E2320
 urxvt*background:  #242424
@@ -42,42 +80,6 @@ URxvt.tabbed.tabbar-bg: -1
 URxvt.tabbed.tab-fg: 5
 URxvt.tabbed.tab-bg: -1
 
-! rxvt-unicode ---------------------------------------------------------------
-
-urxvt.font:xft:Envy Code R for Powerline:size=9:antialias=false:hinting=true
-!urxvt.letterSpace: 1
-urxvt.scrollBar:off
-urxvt.transparent:true
-urxvt.geometry:	165x55
-urxvt.internalBorder:     2
-urxvt.borderLess: false
-urxvt.fading:             10
-urxvt.shading:            40
-urxvt.tintColor:          #242424
-!urxvt*inheritPixmap:      true
-urxvt.depth:              32
-urxvt.saveLines:          32767
-urxvt.visualBell:         true
-urxvt.scrollTtyKeypress:  true
-urxvt.scrollWithBuffer:   false
-urxvt.scrollTtyOutput:    false
-urxvt.scrollstyle:       plain
-urxvt.scrollColor:        #777777
-urxvt.loginShell:         true
-urxvt.termName:           rxvt
-urxvt.cutchars:           "()*,<>[]{}|'
-urxvt.print-pipe:         cat > $(echo urxvt.dump.`date +'%Y%M%d%H%m%S'`)
-urxvt.secondaryScroll:    true
-urxvt.mapAlert:           true
-urxvt.utmpInhibit:        true
-urxvt.perl-lib:           /usr/lib/urxvt/perl/
-urxvt.perl-ext-common:    default,matcher
-urxvt.urlLauncher:        /usr/bin/chromium
-urxvt.matcher.button:     1
-!urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-!urxvt*background:         #191919
-!urxvt*background:         rgba:2222/2222/2222/dddd
-!urxvt*background:         rgba:0000/0000/0000/dddd
 
 ! xscreensaver ---------------------------------------------------------------
 

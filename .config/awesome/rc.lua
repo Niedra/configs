@@ -13,7 +13,7 @@ beautiful.init("/home/roberts/.config/awesome/themes/my/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
-editor = os.getenv("EDITOR") or "gvim"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -53,10 +53,10 @@ layouts =
 tags = {
     settings = {
         { names  = {"terms", "web", "code", "docs", "im", "else"},
-        layout = { layouts[2], layouts[12], layouts[3], layouts[3], layouts[3], layouts[12] }
+        layout = { layouts[2], layouts[10], layouts[3], layouts[3], layouts[3], layouts[12] }
     },
-    { names  = {"terms", "irc", "im", "else"},
-    layout = { layouts[4], layouts[4], layouts[6], layouts[1] }
+    { names  = {"terms", "docs1", "docs2", "else"},
+    layout = { layouts[2], layouts[2], layouts[2], layouts[1] }
 }}}
 
 for s = 1, screen.count() do
