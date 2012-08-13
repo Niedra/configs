@@ -134,6 +134,8 @@ set wildignore+=*.o,*.d,.git,*.pd
 "endfunction
 "autocmd BufWrite *.cpp,*.h,*.c call UPDATE_TAGS()
 
+au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+
 " Pathogen
 call pathogen#infect()
 
