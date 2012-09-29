@@ -53,7 +53,7 @@ layouts =
 tags = {
     settings = {
         { names  = {"terms", "web", "code", "docs", "im", "else"},
-        layout = { layouts[2], layouts[10], layouts[3], layouts[3], layouts[3], layouts[12] }
+        layout = { layouts[2], layouts[10], layouts[2], layouts[3], layouts[3], layouts[12] }
     },
     { names  = {"terms", "docs1", "docs2", "else"},
     layout = { layouts[2], layouts[2], layouts[2], layouts[1] }
@@ -406,8 +406,10 @@ awful.rules.rules = {
       properties = { tag = tags[1][3] } },
     { rule = { class = "Chromium" },
       properties = { tag = tags[1][2] } },
-    { rule = { class = "Eclipse" },
-      properties = { tag = tags[1][3] } },
+    { rule = { instance = "plugin-container" },
+      properties = { floating = true } },
+    { rule = { instance = "exe" },
+      properties = { floating = true } },
 }
 -- }}}
 

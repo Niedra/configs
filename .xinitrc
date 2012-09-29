@@ -1,11 +1,12 @@
+# NOTE: slim runs ck-launch-session & other jazz
 xsetroot -cursor_name left_ptr
 
-if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
-       eval "$(dbus-launch --sh-syntax --exit-with-session)"
-fi
+source /etc/X11/xinit/xinitrc.d/30-dbus
 
 case $1 in
-awesome)
+awesome) # default
+        nm-applet --sm-disable &
+        pnmixer &
         setxkbmap lv -variant tilde &
         dropboxd &
         #xrandr --screen 0 -s 1680x1050 &
@@ -18,7 +19,7 @@ awesome)
         mpdscribble &
         fi
 
-    	exec ssh-agent awesome
+    	exec ck-launch-session ssh-agent awesome
         ;;
 openbox)
 	    openbox-session
@@ -43,6 +44,6 @@ gnome)
         mpdscribble &
         fi
 
-    	exec ck-launch-session dbus-launch awesome 
+    	exec awesome
 	;;
 esac

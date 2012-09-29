@@ -36,6 +36,10 @@ alias make='make -j 6'
 
 alias cdcpp='cd ~/workspace/cpp'
 alias cdadv='cd /srv/http/advice/'
+alias cdglw='cd ~/workspace/opengl/glwiki/'
+
+alias android-connect='go-mtpfs ~/Android'
+alias android-disconnect='fusermount -u ~/Android'
 
 cpp2asm() {
     g++ -c -g -Wa,-a,-ad $1 > $2
@@ -66,6 +70,18 @@ restart_mod() {
     local IN=$*;
     
     sudo /etc/rc.d/${IN} restart
+}
+
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        man "$@"
 }
 
 SSH_ENV="$HOME/.ssh/environment"
@@ -114,3 +130,7 @@ else
         start_agent
     fi
 fi
+
+# TinyOS
+# source /opt/tinyos-2.1.2/tinyos.sh
+CLASSPATH="/opt/tinyos-2.1.2/support/sdk/java/tinyos.jar:$CLASSPATH"
