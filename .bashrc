@@ -37,6 +37,9 @@ alias make='make -j 6'
 alias cdcpp='cd ~/workspace/cpp'
 alias cdadv='cd /srv/http/advice/'
 alias cdglw='cd ~/workspace/opengl/glwiki/'
+alias cdlsp='cd ~/workspace/c/lsp/'
+alias cdbst='cd /opt/tinyos-2.1.2/apps/'
+alias cdgrafika='cd ~/workspace/grafika/'
 
 alias android-connect='go-mtpfs ~/Android'
 alias android-disconnect='fusermount -u ~/Android'
@@ -133,4 +136,8 @@ fi
 
 # TinyOS
 # source /opt/tinyos-2.1.2/tinyos.sh
-CLASSPATH="/opt/tinyos-2.1.2/support/sdk/java/tinyos.jar:$CLASSPATH"
+TOSROOT="/opt/tinyos-2.1.2"
+TOSDIR="$TOSROOT/tos"
+MAKERULES="$TOSROOT/support/make/Makerules"
+CLASSPATH="/opt/tinyos-2.1.2/support/sdk/java/":$CLASSPATH
+CLASSPATH="/opt/tinyos-2.1.2/support/sdk/java/tinyos.jar":$CLASSPATH
