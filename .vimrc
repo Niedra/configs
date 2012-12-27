@@ -5,7 +5,7 @@ filetype plugin indent on
 let mapleader=","
 let g:mapleader=","
 let Tlist_Ctags_Cmd='/usr/bin/ctags'
-let Tlist_WinWidth = 50
+let Tlist_WinWidth = 35
 
 set encoding=utf-8
 set number
@@ -25,7 +25,7 @@ set autochdir
 set switchbuf=useopen,split
 set nocompatible
 set nocp " non vi compatible mode
-set makeprg=make\ -j\ ARCH=mips
+set makeprg=make\ -j
 
 set ignorecase
 set smartcase
@@ -84,7 +84,6 @@ nmap <F9> :!g++ -Wall -g -o %< %<CR>
 nmap <F6> :!./%<CR>
 
 nnoremap <C-H> :Hexmode<CR>
-inoremap <C-H> <Esc>:Hexmode<CR>
 vnoremap <C-H> :<C-U>Hexmode<CR>
 
 map <Leader>v <Plug>TaskList
