@@ -4,7 +4,7 @@ theme = {}
 -- }}}
  
 -- {{{ Styles
-theme.font      = "Envy\ Code\ R\ 8"
+theme.font      = "Envy Code R 8"
 theme.wallpaper_cmd = {"nitrogen --restore"}
 
 -- {{{ Colors
@@ -17,7 +17,7 @@ theme.bg_urgent = "#3F3F3F"
 -- }}}
 
 -- {{{ Borders
-theme.border_width  = "1"
+theme.border_width  = 1
 theme.border_normal = "#3F3F3F"
 theme.border_focus  = "#EBAC54"
 theme.border_marked = "#CC9393"
