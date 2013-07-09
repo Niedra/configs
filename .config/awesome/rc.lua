@@ -86,11 +86,11 @@ local layouts =
 -- {{{ Tags
 tags = {
     settings = {
-        { names  = {"terms", "web", "code", "docs", "im", "else"},
-        layout = { layouts[2], layouts[10], layouts[2], layouts[3], layouts[3], layouts[12] }
+        { names  = {"terms", "web", "code", "docs", "im", "misc", "music"},
+        layout = { layouts[2], layouts[10], layouts[2], layouts[3], layouts[3], layouts[12], layouts[2] }
     },
-    { names  = {"terms", "docs1", "docs2", "else"},
-    layout = { layouts[2], layouts[2], layouts[2], layouts[1] }
+    { names  = {"terms", "web", "docs1", "misc", "else"},
+    layout = { layouts[4], layouts[4], layouts[4], layouts[4], layouts[1] }
 }}}
 
 for s = 1, screen.count() do
@@ -302,6 +302,8 @@ globalkeys = awful.util.table.join(
     awful.key({"Control", "Shift" }, "x", function () awful.util.spawn("ncmpcpp toggle") end),
     awful.key({ modkey,           }, "g", function () awful.util.spawn("gvim") end),
     awful.key({ modkey,           }, "z", function () awful.util.spawn("qalculate") end),
+    awful.key({ modkey, "Shift", "Control" }, "l", function () awful.util.spawn("slock") end),
+
 
 
     -- Standard program
@@ -416,6 +418,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { instance = "libreoffice" },
       properties = { floating = false, tag = tags[1][4] } },
+    { rule = { class = "libreoffice-impress" },
+      properties = { floating = false } },
     { rule = { class = "GNU Image Manipulation Program" },
       properties = { floating = true } },
     -- Set Skype to always map on tags number 2 of screen 1.
@@ -429,9 +433,11 @@ awful.rules.rules = {
       properties = { tag = tags[1][3] } },
     { rule = { class = "Chromium" },
       properties = { tag = tags[1][2] } },
+    { rule = { class = "Spotify" },
+      properties = { tag = tags[1][7], floating = false } },
     { rule = { instance = "plugin-container" },
       properties = { floating = true } },
-    { rule = { instance = "steam" },
+    { rule = { class = "Steam" },
       properties = { floating = true } },
     { rule = { instance = "exe" },
       properties = { floating = true } },
@@ -526,5 +532,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart
-awful.util.spawn_with_shell("xrandr --output DVI-I-1 --auto")
-awful.util.spawn_with_shell("xrandr --output DVI-I-2 --auto --right-of DVI-I-1")
+-- awful.util.spawn_with_shell("xrandr --output DVI-I-1 --auto")
+-- awful.util.spawn_with_shell("xrandr --output DVI-I-2 --auto --right-of DVI-I-1")

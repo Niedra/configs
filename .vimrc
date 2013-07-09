@@ -1,29 +1,38 @@
+" .vimrc
+" Roberts Niedra
+
+
+" Preamble ----------------------------------------------------------------- {{{
 syntax on
 filetype plugin on
 filetype plugin indent on
-
+call pathogen#infect()
+set nocompatible
+" }}}
+" Basic options ------------------------------------------------------------ {{{
+" Leader
 let mapleader=","
 let g:mapleader=","
-let Tlist_Ctags_Cmd='/usr/bin/ctags'
-let Tlist_WinWidth = 35
 
 set encoding=utf-8
 set number
 set guioptions=aegirLt
 set t_Co=256
+set ttyfast
+set visualbell
+set lazyredraw
+
 colorscheme mustang
 
 " highlight after 80 chars
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 " match OverLength /\%81v.\+/
 
-if filereadable("~/.vimrc.work")
-    source ~/.vimrc.work
-endif
+" Pathogen
+call pathogen#infect()
 
-set autochdir
+set noautochdir
 set switchbuf=useopen,split
-set nocompatible
 set nocp " non vi compatible mode
 set makeprg=make\ -j
 
@@ -31,12 +40,16 @@ set ignorecase
 set smartcase
 set title
 set scrolloff=3
+set mouse=a
 
 set undofile
 set undodir=/tmp
 set backup
 set backupdir=/tmp      " backup dir
 set directory=/tmp      " swap file directory
+
+set wildmenu
+set wildignore+=*.o,*.d,.git,*.pd
 
 set incsearch
 set hlsearch
@@ -70,79 +83,78 @@ set statusline+=%=                           " right align
 set statusline+=0x%-8B\                      " current char
 set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
-let g:Powerline_symbols='fancy'
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 
-map T :TaskList<CR>
-map <C-P> :TlistToggle<CR> 
-map <F8> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
-
+set grepprg=grep\ -sn
+" }}}
+" Include other configs ---------------------------------------------------- {{{
+if filereadable("~/.vimrc.work")
+    source ~/.vimrc.work
+endif
+" }}}
+" Quick edit --------------------------------------------------------------- {{{
+nmap <silent> <Leader>ev :e $MYVIMRC<CR>
+nmap <silent> <Leader>sv :so $MYVIMRC<CR>
+" }}}
+" Mappings ----------------------------------------------------------------- {{{
 nmap <C-c> :make!<CR>
-nmap <F4> :!make ARCH=host<CR>
+noremap <F1> :set relativenumber<CR>
+noremap <F2> :set number<CR>
 nmap <F5> :make ARCH=mips install PREFIX=$PWD/X<CR>
 nmap <F3> :!./%<<CR>
 nmap <F9> :!g++ -Wall -g -o %< %<CR>
 nmap <F6> :!./%<CR>
 
 nnoremap <C-H> :Hexmode<CR>
-vnoremap <C-H> :<C-U>Hexmode<CR>
+" vnoremap <C-H> :<C-U>Hexmode<CR>
 
-map <Leader>v <Plug>TaskList
 map <silent> <Leader>n :silent :nohlsearch<CR>
 nmap <silent> <Leader>s :w<CR>
 nmap <silent> <Leader>q :q<CR>
-nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>f :execute "grep --color " . expand('<cword>') . " *"<CR>
 
-
-" Tabularize
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-endif
-
-" Command-T
-let g:CommandTMaxFiles = 100000
-set wildignore+=*.o,*.d,.git,*.pd
-
-"" -- OmniCpp --
-"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-"set completeopt=menu,menuone
-"
-"" -- configs --
-"let OmniCpp_MayCompleteDot = 1 " autocomplete with .
-"let OmniCpp_GlobalScopeSearch = 1 " autocomplete with .
-"let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
-"let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
-"let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
-"let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
-"let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup window
-"let OmniCpp_ShowAccess = 1
-"
-" -- ctags --
-" set tags=./tags;$HOME
-"
-"function! UPDATE_TAGS()
-"  "let _f_ = expand("%:p")
-"  let _cmd_ = '"ctags -a -f tags --c++-kinds=+p --fields=+iaS --extra=+q ."'
-"  let _resp = system(_cmd_)
-"  unlet _cmd_
-"  "unlet _f_
-"  unlet _resp
-"endfunction
-"autocmd BufWrite *.cpp,*.h,*.c call UPDATE_TAGS()
-
+" Easier window management
+" nmap <left>  :3wincmd <<cr>
+" nmap <right> :3wincmd ><cr>
+" nmap <up>    :3wincmd +<cr>
+" nmap <down>  :3wincmd -<cr>
+" }}}
+" File types - Auto commands ----------------------------------------------- {{{
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 au BufRead,BufNewFile *nc setfiletype nc
+" }}}
+" Line numbering ----------------------------------------------------------- {{{
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+" }}}
+" Plugin settings ---------------------------------------------------------- {{{
+" Tag list ----------------------------------------------------------------- {{{
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
+let Tlist_WinWidth = 35
 
-" Pathogen
-call pathogen#infect()
+map <C-P> :TlistToggle<CR> 
+" map <F8> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
+" }}}
+" Clang complete ----------------------------------------------------------- {{{
+let g:clang_complete_copen=1
+let g:clang_periodic_quickfix=0
+let g:clang_close_preview=1
+" }}}
+" CTRLP -------------------------------------------------------------------- {{{
+" 'c' - the directory of the current file.
+" 'r' - the nearest ancestor that contains one of these directories or files: .git .hg .svn .bzr _darcs
+" 'a' - like c, but only if the current working directory outside of CtrlP is not a direct ancestor of the directory of the current file.
+" 0 or '' (empty string) - disable this feature.
+let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_max_height = 30
 
-" Sessions
+nnoremap <silent> <Leader>t :CtrlPMixed<CR>
+nnoremap <silent> <Leader>v :CtrlPBuffer<CR>
+" }}}
+" Sessions ----------------------------------------------------------------- {{{
 let g:session_autosave='yes'
-
-" Cscope
+" }}}
+" Cscope ------------------------------------------------------------------- {{{
 if has('cscope')
     set cscopetag cscopeverbose
 
@@ -157,9 +169,46 @@ if has('cscope')
     cnoreabbrev css cs show
     cnoreabbrev csh cs help
 endif
-
-" Easier window management
-nmap <left>  :3wincmd <<cr>
-nmap <right> :3wincmd ><cr>
-nmap <up>    :3wincmd +<cr>
-nmap <down>  :3wincmd -<cr>
+" }}}
+" Commant-T ---------------------------------------------------------------- {{{
+nnoremap <silent> <Leader>v :CommandTBuffer<CR>
+let g:CommandTMaxFiles = 100000
+" }}}
+" OmniCpp ------------------------------------------------------------------ {{{
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"set completeopt=menu,menuone
+"
+"" -- configs --
+"let OmniCpp_MayCompleteDot = 1 " autocomplete with .
+"let OmniCpp_GlobalScopeSearch = 1 " autocomplete with .
+"let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
+"let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
+"let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
+"let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
+"let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup window
+"let OmniCpp_ShowAccess = 1
+"
+"function! UPDATE_TAGS()
+"  "let _f_ = expand("%:p")
+"  let _cmd_ = '"ctags -a -f tags --c++-kinds=+p --fields=+iaS --extra=+q ."'
+"  let _resp = system(_cmd_)
+"  unlet _cmd_
+"  "unlet _f_
+"  unlet _resp
+"endfunction
+"autocmd BufWrite *.cpp,*.h,*.c call UPDATE_TAGS()
+" }}}
+" Tabularize --------------------------------------------------------------- {{{
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+" }}}
+" Powerline ---------------------------------------------------------------- {{{
+let g:Powerline_symbols='fancy'
+" }}}
+" Powerline ---------------------------------------------------------------- {{{
+" }}}
+" }}}

@@ -1,7 +1,12 @@
 # NOTE: slim runs ck-launch-session & other jazz
-xsetroot -cursor_name left_ptr
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
 
-source /etc/X11/xinit/xinitrc.d/30-dbus
+#xsetroot -cursor_name left_ptr
 
 case $1 in
 awesome) # default
@@ -19,7 +24,7 @@ awesome) # default
         mpdscribble &
         fi
 
-    	exec ck-launch-session ssh-agent awesome
+    	exec ssh-agent awesome
         ;;
 openbox)
 	    openbox-session
