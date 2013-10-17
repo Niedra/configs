@@ -3,20 +3,22 @@ urxvt.cursorColor: #ddeedd
  
 ! rxvt-unicode ---------------------------------------------------------------
 
-urxvt.font:xft:Envy Code R for Powerline-10:antialias=true:hinting=true
+!urxvt.font:xft:Envy Code R for Powerline:pixelsize=13:antialias=true:hinting=true
+urxvt.font:xft:Inconsolata:pixelsize=14:antialias=true:hinting=true:style=dzForPowerline
 urxvt.letterSpace: -1
 urxvt.scrollBar:off
 urxvt.transparent:false
-urxvt.geometry:	165x55
-urxvt.internalBorder:     2
-urxvt.borderLess: false
-urxvt.fading:             10
-urxvt.shading:            114
-urxvt.tintColor:          #060606
-urxvt.inheritPixmap:      true
+urxvt.geometry:	300x70
+!urxvt.internalBorder:     2
+!urxvt.borderLess: false
+urxvt.fading:             20
+urxvt.shading:            106
+urxvt.tintColor:          #242424
+!urxvt.inheritPixmap:      true
 urxvt.depth:              32
 urxvt.saveLines:          32767
 urxvt.visualBell:         true
+urxvt.urgentOnBell:       true
 urxvt.scrollTtyKeypress:  true
 urxvt.scrollWithBuffer:   false
 urxvt.scrollTtyOutput:    false
@@ -24,7 +26,7 @@ urxvt.scrollstyle:       plain
 urxvt.scrollColor:        #777777
 urxvt.loginShell:         true
 urxvt.termName:           rxvt
-urxvt.cutchars:           "()*,<>[]{}|'
+urxvt.cutchars:           "()*,<>[]{}|"
 urxvt.print-pipe:         cat > $(echo urxvt.dump.`date +'%Y%M%d%H%m%S'`)
 urxvt.secondaryScroll:    true
 urxvt.mapAlert:           true
@@ -42,7 +44,7 @@ urxvt.matcher.button:     1
 ! tangoesque scheme
 ! *background:  #1E2320
 urxvt*background:  #242424
-urxvt*foreground:  #aaaaaa
+urxvt*foreground:  #f2f2f2
 ! Black
 *color0:      #000000
 *color8:      #555753
@@ -84,13 +86,13 @@ URxvt.tabbed.tab-bg: -1
 ! xscreensaver ---------------------------------------------------------------
 
 !font settings
-xscreensaver.Dialog.headingFont:        -*-Envy Code R-bold-r-*-*-9-*-*-*-*-*-*-*
-xscreensaver.Dialog.bodyFont:           -*-Envy Code R-bold-medium-r-*-*-9-*-*-*-*-*-*-*
-xscreensaver.Dialog.labelFont:          -*-Envy Code R-medium-r-*-*-9-*-*-*-*-*-*-*
-xscreensaver.Dialog.unameFont:          -*-Envy Code R-medium-r-*-*-9-*-*-*-*-*-*-*
-xscreensaver.Dialog.buttonFont:         -*-Envy Code R-bold-r-*-*-9-*-*-*-*-*-*-*
-xscreensaver.Dialog.dateFont:           -*-Envy Code R-medium-r-*-*-9-*-*-*-*-*-*-*
-xscreensaver.passwd.passwdFont:         -*-Envy Code R-bold-r-*-*-9-*-*-*-*-*-*-*
+!xscreensaver.Dialog.headingFont:        -*-Envy Code R-bold-r-*-*-9-*-*-*-*-*-*-*
+!xscreensaver.Dialog.bodyFont:           -*-Envy Code R-bold-medium-r-*-*-9-*-*-*-*-*-*-*
+!xscreensaver.Dialog.labelFont:          -*-Envy Code R-medium-r-*-*-9-*-*-*-*-*-*-*
+!xscreensaver.Dialog.unameFont:          -*-Envy Code R-medium-r-*-*-9-*-*-*-*-*-*-*
+!xscreensaver.Dialog.buttonFont:         -*-Envy Code R-bold-r-*-*-9-*-*-*-*-*-*-*
+!xscreensaver.Dialog.dateFont:           -*-Envy Code R-medium-r-*-*-9-*-*-*-*-*-*-*
+!xscreensaver.passwd.passwdFont:         -*-Envy Code R-bold-r-*-*-9-*-*-*-*-*-*-*
 !general dialog box (affects main hostname, username, password text)
 xscreensaver.Dialog.foreground:         #ffffff
 xscreensaver.Dialog.background:         #111111
