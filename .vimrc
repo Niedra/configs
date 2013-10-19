@@ -1,5 +1,5 @@
 " .vimrc
-" vim:foldmethod=marker
+" vim: foldmethod=marker
 " Roberts Niedra
 
 
@@ -32,10 +32,14 @@ colorscheme mustang
 " Pathogen
 call pathogen#infect()
 
-set noautochdir
 set switchbuf=useopen,split
 set nocp " non vi compatible mode
 set makeprg=make\ -j
+
+set autowrite
+set autoread
+set completeopt=longest,menuone,preview
+set noautochdir
 
 set ignorecase
 set smartcase
@@ -45,12 +49,15 @@ set mouse=a
 
 set undofile
 set undodir=/tmp
+set undoreload=10000
 set backup
-set backupdir=/tmp      " backup dir
-set directory=/tmp      " swap file directory
+set noswapfile
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swap//
 
 set wildmenu
-set wildignore+=*.o,*.d,.git,*.pd
+set wildignore+=*.o,*.d,.git,*.pd,*.bmp
 
 set incsearch
 set hlsearch
@@ -87,6 +94,8 @@ set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 
 set grepprg=grep\ -sn
+
+set pastetoggle=,p
 " }}}
 " Include other configs ---------------------------------------------------- {{{
 if filereadable("~/.vimrc.work")
@@ -107,12 +116,14 @@ nmap <F9> :!g++ -Wall -g -o %< %<CR>
 nmap <F6> :!./%<CR>
 
 nnoremap <C-H> :Hexmode<CR>
-" vnoremap <C-H> :<C-U>Hexmode<CR>
+"inoremap <C-H> <Esc>:Hexmode<CR>
+"vnoremap <C-H> :<C-U>Hexmode<CR>
 
 map <silent> <Leader>n :silent :nohlsearch<CR>
 nmap <silent> <Leader>s :w<CR>
 nmap <silent> <Leader>q :q<CR>
 nmap <silent> <Leader>f :execute "grep --color " . expand('<cword>') . " *"<CR>
+nmap <silent> <Leader>g :execute "grep -R --color " . expand('<cword>') . " *"<CR>
 
 " Easier window management
 " nmap <left>  :3wincmd <<cr>
@@ -206,6 +217,8 @@ if exists(":Tabularize")
   vmap <Leader>a= :Tabularize /=<CR>
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
+
+  AddTabularPattern struct /\S\+;
 endif
 " }}}
 " Powerline ---------------------------------------------------------------- {{{

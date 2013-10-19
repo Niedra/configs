@@ -1,0 +1,28 @@
+[global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  focus = mouse
+[keybindings]
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    palette = "#000000:#ff6565:#93d44f:#eab93d:#204a87:#ce5c00:#89b6e2:#f2f2f2:#555753:#ff8d8d:#c8e7a8:#ffc123:#3465a4:#f57900:#46a4ff:#b2b2b2"
+    font = Inconsolata Medium 10
+    visible_bell = True
+    background_image = None
+    background_darkness = 0.36
+    use_system_font = False
+    cursor_color = "#545454"
+    foreground_color = "#f2f2f2"
+    show_titlebar = False
+    copy_on_selection = True
+    background_color = "#242424"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
