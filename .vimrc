@@ -1,4 +1,5 @@
 " .vimrc
+" vim:foldmethod=marker
 " Roberts Niedra
 
 
@@ -122,6 +123,7 @@ nmap <silent> <Leader>f :execute "grep --color " . expand('<cword>') . " *"<CR>
 " File types - Auto commands ----------------------------------------------- {{{
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 au BufRead,BufNewFile *nc setfiletype nc
+au BufRead,BufNewFile *nse setfiletype lua
 " }}}
 " Line numbering ----------------------------------------------------------- {{{
 autocmd InsertEnter * :set number
@@ -211,4 +213,8 @@ let g:Powerline_symbols='fancy'
 " }}}
 " Powerline ---------------------------------------------------------------- {{{
 " }}}
+" }}}
+" Java --------------------------------------------------------------------- {{{
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 " }}}

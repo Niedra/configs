@@ -134,6 +134,8 @@ else
     fi
 fi
 
+alias start-ise="source /home/roberts/Xilinx/12.2/ISE_DS/settings64.sh;ise"
+
 # TinyOS
 # source /opt/tinyos-2.1.2/tinyos.sh
 TOSROOT="/opt/tinyos-2.1.2"

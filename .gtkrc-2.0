@@ -4,7 +4,7 @@
 gtk-theme-name="Clearlooks"
 gtk-icon-theme-name="Gion"
 gtk-font-name="Myriad Pro 10"
-gtk-cursor-theme-name="Adwaita"
+gtk-cursor-theme-name="Simple-and-Soft"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR

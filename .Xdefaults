@@ -37,6 +37,7 @@ urxvt.matcher.button:     1
 !urxvt*background:         #191919
 !urxvt*background:         rgba:2222/2222/2222/dddd
 !urxvt*background:         rgba:0000/0000/0000/dddd
+urxvt.intensityStyles: false
 
 
 ! tangoesque scheme
