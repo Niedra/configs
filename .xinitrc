@@ -15,7 +15,7 @@ awesome) # default
         nm-applet --sm-disable &
         pnmixer &
         setxkbmap lv -variant tilde &
-        dropboxd &
+        dropbox &
         #xrandr --screen 0 -s 1680x1050 &
         #xrandr --auto --output DVI-I-1 &
         #xrandr --auto --output DVI-I-2 --left-of DVI-I-1 &
@@ -40,7 +40,7 @@ gnome)
 *)
         export DE=gnome &
         setxkbmap lv -variant tilde &
-        dropboxd &
+        dropbox &
         #xrandr --screen 0 -s 1680x1050 &
         xrandr --auto --output DVI-I-1 &
         xrandr --auto --output DVI-I-2 --left-of DVI-I-1 &
